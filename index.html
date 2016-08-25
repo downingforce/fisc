@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head lang="en">
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="css/bootstrap.css" media="screen">
+    <link rel="stylesheet" href="css/master.css" media="screen">
+    <script src="js/jquery-3.1.0.js"></script>
+    <script src="js/scripts.js"></script>
+    <title>fisc</title>
+  </head>
+  <body>
+    <h1>testing</h1>
+    <div class="container">
+      <div class="jumbotron container-fluid">
+        <button id="goToLogin" class="btn btn-success" type="button" name="button">Login</button>
+        <button id="goToCreate" class="btn btn-success" type="button" name="button">Create Account</button>
+        <button id="home" type="button" class="btn" name="button">Home</button>
+      </div>
+      <form id="accountCreator">
+        <div class="jumbotron container-fluid">
+          <label for="userCreate">Enter your new login info</label>
+          <input id="newUsername" type="text" name="username" placeholder="New username">
+          <input id="newPassword" type="text" name="password" placeholder="New password">
+          <button id="createSubmit" type="submit" name="button" class="btn btn-success">Create Account</button>
+        </div>
+      </form>
+      <form id="accountLogin">
+        <div class="jumbotron container-fluid">
+          <label for="userLogin">Enter your login info</label>
+          <input id="username" type="text" name="username" placeholder="Username">
+          <input id="password" type="text" name="password" placeholder="Password">
+          <button id="loginSubmit" type="submit" name="button" class="btn btn-success">Login</button>
+        </div>
+      </form>
+    </div>
+    <ul id='balance'>
+
+    </ul>
+  </body>
+</html>
