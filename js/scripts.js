@@ -1,3 +1,5 @@
+
+// Create New User Account
 function User (userName, firstName, lastName, accountNumber, email, address) {
   this.userName = userName;
   this.firstName = firstName;
@@ -7,31 +9,36 @@ function User (userName, firstName, lastName, accountNumber, email, address) {
   this.address = address;
   this.transactions = [];
 }
-
 function Address (street, city, state, zip) {
   this.street = street;
   this.city = city;
   this.state = state;
   this.zip = zip;
 }
-
 function Transaction (date, location, amount) {
   this.date = date;
   this.loc = location;
   this.amount = amount;
 }
-var newUserName = 'dafunk';
-var newFirstName = 'Matt';
-var newLastName = 'Nic';
-var newEmail = 'funkyTown@fake.com';
-var accountNumber = 3452;
-var newAddress = new Address("123 west", "town", "MI", 97201);
-var user = new User(newUserName, newFirstName, newLastName, accountNumber, newEmail, newAddress);
+
+
+
+
+
+
 
 // user.transactions[user.transactions.length] = new Transaction('12/25/16', 'Fred Meyer', '$35.17');
 //
 // var anotherTrans =new Transaction('12/25/10', 'Meijer', '$35.34');
 
+
+// Search Accounts On Login
+// for (var i = 0; i < array.length; i++) {
+//   if (newUser[i].userName === 'dafunk'){
+//     // success!!!!!
+//     // return newUser[i];
+//   }
+// }
 
 
 
@@ -91,7 +98,6 @@ function verifyUser(username, password) {
 $(document).ready(function(){
   var currentUser;
   var accountCounter = 1;
-
   $('#goToLogin').click(function() {
     $('#accountCreator').hide();
     $('#accountLogin').show();
@@ -104,35 +110,47 @@ $(document).ready(function(){
     $('#accountLogin').hide();
     $('#accountCreator').hide();
   });
-
-  $('#accountCreator').submit(function(event){
+  $('#account-creator').submit(function(event){
     event.preventDefault();
+    console.log('test');
 
-    var accountIndex = 'userAccount' + accountCounter;
-    var newUsername = $('input#newUsername').val();
-    var newPassword = $('input#newPassword').val();
-    $('input#newPassword').val("");
-    $('input#newUsername').val("");
+    var accountNumber = 0989087;
+    var newUserName = $('input#new-username').val();
+    var newPassword = $('input#new-password').val();
+    var newFirstName = $('input#new-first').val();
+    var newLastName = $('input#new-last').val();
+    var newEmail = $('input#new-email').val();
+    var newStreet = $('input#new-street').val();
+    var newCity = $('input#new-city').val();
+    var newState = $('input#new-state').val();
+    var newZip = $('input#new-zip').val();
 
-    if(findDuplicate(newUsername)) {
-      var newAccount = new BankAccount(newUsername, newPassword, accountCounter)
-      accounts.push([newAccount, newUsername]);
-      localStorage.setItem(newUsername, JSON.stringify(accounts[accountCounter - 1]));
+    var newAddress = new Address(newStreet, newCity, newState, newZip);
+    console.log(newAddress)
+    var newUser = new User(newUserName, newFirstName, newLastName, accountNumber, newEmail, newAddress);
+    console.log(newUser);
+    $('input#new-password').val("");
+    $('input#new-username').val("");
+    $('input#new-first').val("");
+    $('input#new-last').val("");
+    $('input#new-email').val("");
+    $('input#new-street').val("");
+    $('input#new-city').val("");
+    $('input#new-state').val("");
+    $('input#new-zip').val("");
+
       accountCounter++;
-      } else {
-        alert("please use a unique Username");
-      }
-  });
-  $('#accountLogin').submit(function(event){
-    event.preventDefault();
 
-    var username = $('input#username').val();
-    var password = $('input#password').val();
-    currentUser = verifyUser(username, password);
-    $("#balance").append("<p class='displayAccount'>" + currentUser[0].user + ", Current Balance: " + currentUser[0].balance + "</p>");
-    $('input#username').val("");
-    $('input#password').val("");
   });
+  // $('#accountLogin').submit(function(event){
+  //   event.preventDefault();
+  //   var username = $('input#username').val();
+  //   var password = $('input#password').val();
+  //   currentUser = verifyUser(username, password);
+  //   $("#balance").append("<p class='displayAccount'>" + currentUser[0].user + ", Current Balance: " + currentUser[0].balance + "</p>");;
+  //   $('input#username').val("");
+  //   $('input#password').val("");
+  // });
   // $('#add').click(function() {
   //   currentUser[0][2] + 5;
   //   currentUser[0].deposit();
