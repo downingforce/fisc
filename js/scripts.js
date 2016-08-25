@@ -21,7 +21,7 @@ function Transaction (date, location, amount) {
   this.amount = amount;
 }
 
-
+var users = [];
 
 
 
@@ -61,20 +61,22 @@ function Transaction (date, location, amount) {
 // }
 
 function leftPad(number, targetLength) {
-    var output = number + '';
-    while (output.length < targetLength) {
-        output = '0' + output;
-    }
-    return output;
+  var output = number + '';
+  while (output.length < targetLength) {
+    output = '0' + output;
+  }
+  return output;
 }
 // Confirm unique username
-function findDuplicate(userName) {
-  var userTest = localStorage.getItem(userName)
-  console.log(userTest)
-  if (userTest === null) {
-    return true;
+function findDuplicate(newUserName) {
+  for (var i = 0; i < users.length; i++) {
+    if (users[i].userName === newUserName) {
+      return true;
+    }
+    return false;
   }
 }
+
 // Verify user and password
 function verifyUser(username, password) {
   var userTest = localStorage.getItem(username)
@@ -90,14 +92,10 @@ function verifyUser(username, password) {
     console.log(userTest);
   }
 }
-
-
+var accountCounter = 989087;
 // JSON.parse(retrievedObject));
-
 // Front end Logic
 $(document).ready(function(){
-  var currentUser;
-  var accountCounter = 1;
   $('#goToLogin').click(function() {
     $('#accountCreator').hide();
     $('#accountLogin').show();
@@ -112,9 +110,6 @@ $(document).ready(function(){
   });
   $('#account-creator').submit(function(event){
     event.preventDefault();
-    console.log('test');
-
-    var accountNumber = 0989087;
     var newUserName = $('input#new-username').val();
     var newPassword = $('input#new-password').val();
     var newFirstName = $('input#new-first').val();
@@ -124,23 +119,27 @@ $(document).ready(function(){
     var newCity = $('input#new-city').val();
     var newState = $('input#new-state').val();
     var newZip = $('input#new-zip').val();
-
-    var newAddress = new Address(newStreet, newCity, newState, newZip);
-    console.log(newAddress)
-    var newUser = new User(newUserName, newFirstName, newLastName, accountNumber, newEmail, newAddress);
-    console.log(newUser);
-    $('input#new-password').val("");
-    $('input#new-username').val("");
-    $('input#new-first').val("");
-    $('input#new-last').val("");
-    $('input#new-email').val("");
-    $('input#new-street').val("");
-    $('input#new-city').val("");
-    $('input#new-state').val("");
-    $('input#new-zip').val("");
-
-      accountCounter++;
-
+    var duplicate = findDuplicate(newUserName);
+    if (duplicate) {
+      $('input#new-password').val("");
+      $('input#new-username').val("");
+      alert("Username unavailable");
+    } else {
+      localStorage.setItem('accountCounter', accountCounter+=11);
+      var accountNumber = localStorage.getItem('accountCounter');
+      var newAddress = new Address(newStreet, newCity, newState, newZip);
+      var user = new User(newUserName, newFirstName, newLastName, accountNumber, newEmail, newAddress);
+      users.push(user);
+      $('input#new-password').val("");
+      $('input#new-username').val("");
+      $('input#new-first').val("");
+      $('input#new-last').val("");
+      $('input#new-email').val("");
+      $('input#new-street').val("");
+      $('input#new-city').val("");
+      $('input#new-state').val("");
+      $('input#new-zip').val("");
+    }
   });
   // $('#accountLogin').submit(function(event){
   //   event.preventDefault();
