@@ -1,28 +1,57 @@
+// Categories //
+// -Rent
+// -Food
+// -Utils
+// -Entertainment
+// -Clothes
+// -Car/Auto/Gas
+// -Vacation
+// -Bills
+// -Gifts
+// -Medical
+
+
 
 // Create New User Account
+
+
+function USER(state){
+    this.state = state;
+    this.userProfile;
+    this.transactions = [];
+}
+
 function User (userName, firstName, lastName, accountNumber, email, address) {
-  this.userName = userName;
-  this.firstName = firstName;
-  this.lastName = lastName;
-  this.accountNumber = accountNumber;
-  this.email = email;
-  this.address = address;
-  this.transactions = [];
+    this.userName = userName;
+    this.firstName = firstName;
+    this.lastName = lastName;
+    this.accountNumber = accountNumber;
+    this.email = email;
+    this.address = address;
+    this.transactions = [];
 }
 function Address (street, city, state, zip) {
-  this.street = street;
-  this.city = city;
-  this.state = state;
-  this.zip = zip;
+    this.street = street;
+    this.city = city;
+    this.state = state;
+    this.zip = zip;
 }
-function Transaction (date, location, amount) {
-  this.date = date;
-  this.loc = location;
-  this.amount = amount;
+function Transaction (id, type, date, location, amount, tag) {
+    this.transactionID = id;
+    this.date = date;
+    this.loc = location;
+    this.amount = amount;
+    this.tag = tag;
 }
 
+function Tag = (){
+}
 var users = [];
 
+USER.prototype.addTransaction = function(date, location, amount, tag){
+    var newTransaction = new Transaction(date, location, amount, tag);
+    USER.
+}
 
 
 
@@ -61,98 +90,98 @@ var users = [];
 // }
 
 function leftPad(number, targetLength) {
-  var output = number + '';
-  while (output.length < targetLength) {
-    output = '0' + output;
-  }
-  return output;
+    var output = number + '';
+    while (output.length < targetLength) {
+        output = '0' + output;
+    }
+    return output;
 }
 // Confirm unique username
 function findDuplicate(newUserName) {
-  for (var i = 0; i < users.length; i++) {
-    if (users[i].userName === newUserName) {
-      return true;
+    for (var i = 0; i < users.length; i++) {
+        if (users[i].userName === newUserName) {
+            return true;
+        }
+        return false;
     }
-    return false;
-  }
 }
 
 // Verify user and password
 function verifyUser(username, password) {
-  var userTest = localStorage.getItem(username)
-  if (userTest === null) {
-    return alert('Username not found');
-  } else {
-    userTest = JSON.parse(userTest);
-    if (userTest[0].password === password) {
-      return userTest;
+    var userTest = localStorage.getItem(username)
+    if (userTest === null) {
+        return alert('Username not found');
     } else {
-      alert("Please enter the correct Password")
+        userTest = JSON.parse(userTest);
+        if (userTest[0].password === password) {
+            return userTest;
+        } else {
+            alert("Please enter the correct Password")
+        }
+        console.log(userTest);
     }
-    console.log(userTest);
-  }
 }
 var accountCounter = 989087;
 // JSON.parse(retrievedObject));
 // Front end Logic
 $(document).ready(function(){
-  $('#goToLogin').click(function() {
-    $('#accountCreator').hide();
-    $('#accountLogin').show();
-  });
-  $('#goToCreate').click(function() {
-    $('#accountLogin').hide();
-    $('#accountCreator').show();
-  });
-  $('#home').click(function() {
-    $('#accountLogin').hide();
-    $('#accountCreator').hide();
-  });
-  $('#account-creator').submit(function(event){
-    event.preventDefault();
-    var newUserName = $('input#new-username').val();
-    var newPassword = $('input#new-password').val();
-    var newFirstName = $('input#new-first').val();
-    var newLastName = $('input#new-last').val();
-    var newEmail = $('input#new-email').val();
-    var newStreet = $('input#new-street').val();
-    var newCity = $('input#new-city').val();
-    var newState = $('input#new-state').val();
-    var newZip = $('input#new-zip').val();
-    var duplicate = findDuplicate(newUserName);
-    if (duplicate) {
-      $('input#new-password').val("");
-      $('input#new-username').val("");
-      alert("Username unavailable");
-    } else {
-      localStorage.setItem('accountCounter', accountCounter+=11);
-      var accountNumber = localStorage.getItem('accountCounter');
-      var newAddress = new Address(newStreet, newCity, newState, newZip);
-      var user = new User(newUserName, newFirstName, newLastName, accountNumber, newEmail, newAddress);
-      users.push(user);
-      $('input#new-password').val("");
-      $('input#new-username').val("");
-      $('input#new-first').val("");
-      $('input#new-last').val("");
-      $('input#new-email').val("");
-      $('input#new-street').val("");
-      $('input#new-city').val("");
-      $('input#new-state').val("");
-      $('input#new-zip').val("");
-    }
-  });
-  // $('#accountLogin').submit(function(event){
-  //   event.preventDefault();
-  //   var username = $('input#username').val();
-  //   var password = $('input#password').val();
-  //   currentUser = verifyUser(username, password);
-  //   $("#balance").append("<p class='displayAccount'>" + currentUser[0].user + ", Current Balance: " + currentUser[0].balance + "</p>");;
-  //   $('input#username').val("");
-  //   $('input#password').val("");
-  // });
-  // $('#add').click(function() {
-  //   currentUser[0][2] + 5;
-  //   currentUser[0].deposit();
-  //   localStorage.setItem(currentUser[1],currentUser);
-  // });
+    $('#goToLogin').click(function() {
+        $('#accountCreator').hide();
+        $('#accountLogin').show();
+    });
+    $('#goToCreate').click(function() {
+        $('#accountLogin').hide();
+        $('#accountCreator').show();
+    });
+    $('#home').click(function() {
+        $('#accountLogin').hide();
+        $('#accountCreator').hide();
+    });
+    $('#account-creator').submit(function(event){
+        event.preventDefault();
+        var newUserName = $('input#new-username').val();
+        var newPassword = $('input#new-password').val();
+        var newFirstName = $('input#new-first').val();
+        var newLastName = $('input#new-last').val();
+        var newEmail = $('input#new-email').val();
+        var newStreet = $('input#new-street').val();
+        var newCity = $('input#new-city').val();
+        var newState = $('input#new-state').val();
+        var newZip = $('input#new-zip').val();
+        var duplicate = findDuplicate(newUserName);
+        if (duplicate) {
+            $('input#new-password').val("");
+            $('input#new-username').val("");
+            alert("Username unavailable");
+        } else {
+            localStorage.setItem('accountCounter', accountCounter+=11);
+            var accountNumber = localStorage.getItem('accountCounter');
+            var newAddress = new Address(newStreet, newCity, newState, newZip);
+            var user = new User(newUserName, newFirstName, newLastName, accountNumber, newEmail, newAddress);
+            users.push(user);
+            $('input#new-password').val("");
+            $('input#new-username').val("");
+            $('input#new-first').val("");
+            $('input#new-last').val("");
+            $('input#new-email').val("");
+            $('input#new-street').val("");
+            $('input#new-city').val("");
+            $('input#new-state').val("");
+            $('input#new-zip').val("");
+        }
+    });
+    // $('#accountLogin').submit(function(event){
+    //   event.preventDefault();
+    //   var username = $('input#username').val();
+    //   var password = $('input#password').val();
+    //   currentUser = verifyUser(username, password);
+    //   $("#balance").append("<p class='displayAccount'>" + currentUser[0].user + ", Current Balance: " + currentUser[0].balance + "</p>");;
+    //   $('input#username').val("");
+    //   $('input#password').val("");
+    // });
+    // $('#add').click(function() {
+    //   currentUser[0][2] + 5;
+    //   currentUser[0].deposit();
+    //   localStorage.setItem(currentUser[1],currentUser);
+    // });
 });
