@@ -35,10 +35,10 @@ function Address (street, city, state, zip) {
     this.state = state;
     this.zip = zip;
 }
-function Transaction (id, type, date, location, amount, tag) {
+function Transaction (id, date, description, amount, tag) {
     this.transactionID = id;
     this.date = date;
-    this.loc = location;
+    this.loc = description;
     this.amount = amount;
     this.tag = tag;
 }
@@ -49,9 +49,9 @@ var mainUSER = new USER(new UserProfile("username", "password", 'user', 'name', 
 // }
 // var users = [];
 
-USER.prototype.addTransaction = function(date, location, amount, tag){
-    var newTransaction = new Transaction(date, location, amount, tag);
-    USER.transactions.push(newTransaction)
+USER.prototype.addTransaction = function(id, date, description, amount, tag){
+    var newTransaction = new Transaction(id, date, description, amount, tag);
+    mainUSER.transactions.push(newTransaction)
 }
 
 
