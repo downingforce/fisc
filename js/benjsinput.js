@@ -2,10 +2,9 @@
 
 
 function findTrans(id) {
-  debugger;
   for (var i = 0; i <= mainUSER.transactions.length; i++) {
-    if(mainUSER.transactions[i].transactionID === id) {
-      return mainUSER.transaction[i];
+    if(mainUSER.transactions[i].transactionID === parseInt(id)) {
+      return mainUSER.transactions[i];
     }
   }
 }
@@ -18,7 +17,7 @@ $(document).ready(function() {
     $('.transaction-row tr').detach();
     for (var i = 0; i < mainUSER.transactions.length; i++) {
       id = i + 1;
-        $('.transaction-row').prepend('<tr class="transaction-item" id="'+id+'"><td>' + mainUSER.transactions[i].transactionID + '</td><td>' + mainUSER.transactions[i].date + '</td><td>' + mainUSER.transactions[i].description + '</td><td>' + mainUSER.transactions[i].amount + '</td><td>' + mainUSER.transactions[i].tag + '</td></tr>');
+        $('.transaction-row').prepend('<tr class="transaction-item" id="'+id+'"><td>' + mainUSER.transactions[i].transactionID + '</td><td>' + mainUSER.transactions[i].date + '</td><td>' + mainUSER.transactions[i].desc + '</td><td>' + mainUSER.transactions[i].amount + '</td><td>' + mainUSER.transactions[i].tag + '</td></tr>');
     }
   }
   refreshTable();
@@ -31,13 +30,28 @@ $(document).ready(function() {
      document.getElementById("trans-id").value = id;
 
     var tempObject = findTrans(id);
-    debugger;
 
      $('#trans-date').val(tempObject.date)
      $('#trans-desc').val(tempObject.desc)
      $('#trans-amt').val(tempObject.amount)
      $('#trans-tag').val(tempObject.tag)
+  });
 
+  $('#update-trans').click(function(event) {
+    var transID = document.getElementById("trans-id").value;
+    var transDate = document.getElementById("trans-date").value;
+    var transDesc = document.getElementById("trans-desc").value;
+    var transAmt = document.getElementById("trans-amt").value;
+    var transTag = document.getElementById("trans-tag").value;
+
+    mainUSER.transactions[transID-1].date = transDate;
+    mainUSER.transactions[transID-1].desc = transDesc;
+    mainUSER.transactions[transID-1].amount = transAmt;
+    mainUSER.transactions[transID-1].tag = transTag;
+    refreshTable();
+    event.preventDefault();
+    debugger;
+    
   });
 
 
@@ -51,7 +65,7 @@ $(document).ready(function() {
     var userDate = $('#trans-date').val();
     var userDesc = $('#trans-desc').val();
     var userAmt = parseInt($('#trans-amt').val());
-    var userTag = 'test';
+    var userTag = $('#trans-tag').val();
 
     mainUSER.addTransaction(transID, userDate, userDesc, userAmt, userTag);
 
