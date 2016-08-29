@@ -44,14 +44,14 @@ function Transaction (id, type, date, location, amount, tag) {
     this.tag = tag;
 }
 
-function Tag = (){
-}
-var users = [];
-
-USER.prototype.addTransaction = function(date, location, amount, tag){
-    var newTransaction = new Transaction(date, location, amount, tag);
-    USER.
-}
+// function Tag = (){
+// }
+// var users = [];
+//
+// USER.prototype.addTransaction = function(date, location, amount, tag){
+//     var newTransaction = new Transaction(date, location, amount, tag);
+//     USER.
+// }
 
 
 
@@ -125,6 +125,36 @@ var accountCounter = 989087;
 // JSON.parse(retrievedObject));
 // Front end Logic
 $(document).ready(function(){
+
+// Google Table
+google.charts.load('current', {'packages':['table']});
+      google.charts.setOnLoadCallback(drawTable);
+
+      function drawTable() {
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'Name');
+        data.addColumn('number', 'Salary');
+        data.addColumn('boolean', 'Full Time Employee');
+        data.addRows([
+          ['Mike',  {v: 10000, f: '$10,000'}, true],
+          ['Jim',   {v:8000,   f: '$8,000'},  false],
+          ['Alice', {v: 12500, f: '$12,500'}, true],
+          ['Bob',   {v: 7000,  f: '$7,000'},  true]
+        ]);
+
+        var table = new google.visualization.Table(document.getElementById('table_div'));
+
+        table.draw(data, {showRowNumber: true, width: '100%', height: '100%'});
+        var selection = table.getSelection();
+        $("#table_div").click(function(){
+        console.log(selection);
+    });
+      }
+      //End Table
+
+
+
+});
     $('#goToLogin').click(function() {
         $('#accountCreator').hide();
         $('#accountLogin').show();
@@ -184,4 +214,4 @@ $(document).ready(function(){
     //   currentUser[0].deposit();
     //   localStorage.setItem(currentUser[1],currentUser);
     // });
-});
+// });
