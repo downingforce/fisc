@@ -27,7 +27,7 @@ function Address (street, city, state, zip) {
 function Transaction (id, date, description, amount, tag) {
     this.transactionID = id;
     this.date = date;
-    this.loc = description;
+    this.desc = description;
     this.amount = amount;
     this.tag = tag;
 }

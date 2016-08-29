@@ -1,3 +1,15 @@
+
+
+
+function findTrans(id) {
+  debugger;
+  for (var i = 0; i <= mainUSER.transactions.length; i++) {
+    if(mainUSER.transactions[i].transactionID === id) {
+      return mainUSER.transaction[i];
+    }
+  }
+}
+
 $(document).ready(function() {
   // Gets new ID number for Transaction List
   document.getElementById("trans-id").value = mainUSER.transactions.length + 1;
@@ -6,17 +18,29 @@ $(document).ready(function() {
     $('.transaction-row tr').detach();
     for (var i = 0; i < mainUSER.transactions.length; i++) {
       id = i + 1;
-        $('.transaction-row').prepend('<tr class="transaction-item"><td id="'+id+'">' + mainUSER.transactions[i].transactionID + '</td><td>' + mainUSER.transactions[i].date + '</td><td>' + mainUSER.transactions[i].description + '</td><td>' + mainUSER.transactions[i].amount + '</td><td>' + mainUSER.transactions[i].tag + '</td></tr>');
+        $('.transaction-row').prepend('<tr class="transaction-item" id="'+id+'"><td>' + mainUSER.transactions[i].transactionID + '</td><td>' + mainUSER.transactions[i].date + '</td><td>' + mainUSER.transactions[i].description + '</td><td>' + mainUSER.transactions[i].amount + '</td><td>' + mainUSER.transactions[i].tag + '</td></tr>');
     }
   }
   refreshTable();
-  $('tr').click(function(event) {
+
+
+  $('table').on("click", '.transaction-item' ,function(event) {
     $('#add-trans').hide();
     $('#update-trans').show();
-    alert($(this).attr('id'));
-    alert($(this).id)
-    document.getElementById("trans-id").value = id;
+     var id = $(this).attr('id');
+     document.getElementById("trans-id").value = id;
+
+    var tempObject = findTrans(id);
+    debugger;
+
+     $('#trans-date').val(tempObject.date)
+     $('#trans-desc').val(tempObject.desc)
+     $('#trans-amt').val(tempObject.amount)
+     $('#trans-tag').val(tempObject.tag)
+
   });
+
+
 
 
   // Add Transaction Input Field
