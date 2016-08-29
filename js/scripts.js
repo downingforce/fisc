@@ -4,17 +4,11 @@ var PROGSTATE = {
   StateName: "fiscState"
 };
 
-
-
-// Create New User Account
-
-
 function USER(userProfile){
     this.userProfile = userProfile;
     this.transactions = [];
     this.accountNumber;
 }
-
 
 function UserProfile (userName, password, firstName, lastName, email, address) {
     this.userName = userName;
@@ -33,12 +27,10 @@ function Address (street, city, state, zip) {
 function Transaction (id, date, description, amount, tag) {
     this.transactionID = id;
     this.date = date;
-
     this.desc = description;
     this.amount = amount;
     this.tag = tag;
 }
-
 
 function populateTransactions(jsonArray, currentUser) {
   var transactionID;
@@ -46,7 +38,6 @@ function populateTransactions(jsonArray, currentUser) {
     var transaction = new Transaction (jsonArray[i].transactionID, jsonArray[i].date, jsonArray[i].desc, jsonArray[i].amount, jsonArray[i].tag)
     currentUser.transactions.push(transaction);
   }
-
 }
 
 // Send User to localStorage, with accountNumber as identifier
@@ -95,17 +86,6 @@ function createNewUser(userName, firstName, lastName, email, street, city, state
   return newUser;
 }
 
-
-
-$(document).ready(function(){
-
-  var ricky = createNewUser("ricky", "Rick", "James", "rickjames@bitch.com","1010 Main St", "Portland", "OR", "97214", rickyJsonData);
-  var bobby = createNewUser("bobby", "Rick", "James", "rickjames@bitch.com","1010 Main St", "Portland", "OR", "97214", rickyJsonData);
-  storeUser(ricky);
-
-  debugger;
-
-
 // Verify user and password
 function verifyUser(username, password) {
     var userTest = localStorage.getItem(username)
@@ -122,12 +102,13 @@ function verifyUser(username, password) {
     }
 }
 var accountCounter = 989086;
+
 // Front end Logic
 $(document).ready(function(){
 
-
-
-
+  //var ricky = createNewUser("ricky", "Rick", "James", "rickjames@bitch.com","1010 Main St", "Portland", "OR", "97214", rickyJsonData);
+  //var bobby = createNewUser("bobby", "Rick", "James", "rickjames@bitch.com","1010 Main St", "Portland", "OR", "97214", rickyJsonData);
+  //storeUser(ricky);
 
 
     $('#goToLogin').click(function() {
@@ -175,6 +156,7 @@ $(document).ready(function(){
             $('input#new-zip').val("");
         }
     });
+    
     // $('#accountLogin').submit(function(event){
     //   event.preventDefault();
     //   var username = $('input#username').val();
@@ -189,27 +171,5 @@ $(document).ready(function(){
     //   currentUser[0].deposit();
     //   localStorage.setItem(currentUser[1],currentUser);
     // });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 });
 // });
