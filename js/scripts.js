@@ -32,16 +32,7 @@ function Transaction (id, type, date, location, amount, tag) {
     this.tag = tag;
 }
 
-<<<<<<< HEAD
-// function Tag = (){
-// }
-// var users = [];
-//
-// USER.prototype.addTransaction = function(date, location, amount, tag){
-//     var newTransaction = new Transaction(date, location, amount, tag);
-//     USER.
-// }
-=======
+
 var mainUSER = new USER(new UserProfile("username", "password", 'user', 'name', '1', 'email', 'address'))
 
 // function Tag = (){
@@ -52,7 +43,7 @@ USER.prototype.addTransaction = function(date, location, amount, tag){
     var newTransaction = new Transaction(date, location, amount, tag);
     USER.transactions.push(newTransaction)
 }
->>>>>>> 07aa62c1b0d0011357a1fc010b0d855a701d04bd
+
 
 
 
@@ -128,7 +119,7 @@ $(document).ready(function(){
 
 
 
-});
+
     $('#goToLogin').click(function() {
         $('#accountCreator').hide();
         $('#accountLogin').show();
@@ -188,9 +179,9 @@ $(document).ready(function(){
     //   currentUser[0].deposit();
     //   localStorage.setItem(currentUser[1],currentUser);
     // });
-<<<<<<< HEAD
+
 // });
-=======
+
 
 
 
@@ -218,4 +209,3 @@ $(document).ready(function(){
 
 
 });
->>>>>>> 07aa62c1b0d0011357a1fc010b0d855a701d04bd
