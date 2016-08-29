@@ -43,6 +43,10 @@ USER.prototype.addTransaction = function(id, date, description, amount, tag){
     var newTransaction = new Transaction(id, date, description, amount, tag);
     mainUSER.transactions.push(newTransaction)
 }
+<<<<<<< HEAD
+=======
+
+>>>>>>> ff491afcda66bda1ad04072cd146ff7640e992fe
 
 
 
@@ -118,7 +122,7 @@ $(document).ready(function(){
 
 
 
-});
+
     $('#goToLogin').click(function() {
         $('#accountCreator').hide();
         $('#accountLogin').show();
@@ -178,6 +182,9 @@ $(document).ready(function(){
     //   currentUser[0].deposit();
     //   localStorage.setItem(currentUser[1],currentUser);
     // });
+
+// });
+
 
 
 
