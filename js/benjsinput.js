@@ -10,11 +10,11 @@ $(document).ready(function() {
     }
   }
   refreshTable();
-  $('.transaction-row tr').click(function(event) {
+  $('tr').click(function(event) {
     $('#add-trans').hide();
     $('#update-trans').show();
     alert($(this).attr('id'));
-    alert(this.id)
+    alert($(this).id)
     document.getElementById("trans-id").value = id;
   });
 
