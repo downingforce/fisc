@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head lang="en">
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="css/bootstrap.css" media="screen">
+    <link rel="stylesheet" href="css/master.css" media="screen">
+    <script src="js/jquery-3.1.0.js"></script>
+    <script src="js/benjsinput.js"></script>
+    <title>fisc</title>
+  </head>
+  <body>
+    <div class="container-fluid">
+      <form id="transaction-input" class='form-inline'>
+        <div class="transaction"><hr>
+          <div class="form-group">
+            <label for="">Transaction ID</label>
+            <input id="transaction-id" class="form-control" type="text" value="" readonly>
+          </div>
+          <div class="form-group">
+            <label for="">Date</label>
+            <input class="form-control" type="date" name="name" value="">
+          </div>
+          <div class="form-group">
+            <label for="">Location</label>
+            <input class="form-control" type="text" name="name" value="">
+          </div>
+          <div class="form-group">
+            <label for="">Amount</label>
+            <input class="form-control" type="number" name="name" value="">
+          </div>
+          <div class="form-group">
+            <label for="">Tag</label>
+            <select class="form-control" name="">
+              <option value="option">Rent</option>
+              <option value="option">Food</option>
+              <option value="option">Utilities</option>
+              <option value="option">Entertainment</option>
+              <option value="option">Clothes</option>
+              <option value="option">Automotive</option>
+              <option value="option">Bills</option>
+              <option value="option">Medical</option>
+            </select>
+          </div>
+          <button id="add-trans" type="submit" class="btn btn-success" name="button">Add A Transaction</button>
+        </div>
+
+        <hr>
+
+
+
+      </form>
+    </div>
+  </body>
+</html>

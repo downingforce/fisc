@@ -1,6 +1,12 @@
 $(document).ready(function() {
+  var exArray = [];
   // Add Transaction Input Field
-  $('#add-trans').click(function() {
-    $('#transaction-input').append('<div class="transaction">' + '<div class="form-group">' + '<label for="">Transaction ID</label>' + '<input class="form-control" type="button" name="name" value="">' + '</div>' + '<div class="form-group">' + '<label for="">Date</label>' + '<input class="form-control" type="date" name="name" value="">' + '</div>' + '<div class="form-group">' + '<label for="">Location</label>' + '<input class="form-control" type="text" name="name" value="">' + '</div>' + '<div class="form-group">' + '<label for="">Amount</label>' + '<input class="form-control" type="number" name="name" value="">' + '</div>' + '<div class="form-group">' + '<label for="">Tag</label>' + '<select class="form-control" name="">' + '<option value="option">Rent</option>' + '<option value="option">Food</option>' + '<option value="option">Utilities</option>' + '<option value="option">Entertainment</option>' + '<option value="option">Clothes</option>' + '<option value="option">Automotive</option>' + '<option value="option">Bills</option>' + '<option value="option">Medical</option>' + '</select>' + '</div>' + '</div>');
+  $('#transaction-input').submit(function(event) {
+    console.log(exArray)
+    exArray.push('hah');
+    var transID = exArray.length;
+    document.getElementById("transaction-id").value = exArray.length;
+
+    event.preventDefault();
   });
 });
