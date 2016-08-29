@@ -1,14 +1,3 @@
-// Categories //
-// -Rent
-// -Food
-// -Utils
-// -Entertainment
-// -Clothes
-// -Car/Auto/Gas
-// -Vacation
-// -Bills
-// -Gifts
-// -Medical
 
 
 
@@ -42,6 +31,7 @@ function Transaction (id, date, description, amount, tag) {
     this.amount = amount;
     this.tag = tag;
 }
+
 
 var mainUSER = new USER(new UserProfile("username", "password", 'user', 'name', '1', 'email', 'address'))
 
@@ -122,10 +112,13 @@ function verifyUser(username, password) {
         console.log(userTest);
     }
 }
-var accountCounter = 989087;
-// JSON.parse(retrievedObject));
+var accountCounter = 989086;
 // Front end Logic
 $(document).ready(function(){
+
+
+
+});
     $('#goToLogin').click(function() {
         $('#accountCreator').hide();
         $('#accountLogin').show();
