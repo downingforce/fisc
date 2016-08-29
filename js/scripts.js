@@ -1,5 +1,3 @@
-// Bunch of trash
-
 var PROGSTATE = {
   accountNum: 500,
   Users: [],
@@ -45,15 +43,11 @@ function populateTransactions(jsonArray, currentUser) {
 // Send User to localStorage, with accountNumber as identifier
 function storeUser(User){
   localStorage.setItem(User.accountNumber, JSON.stringify(User));
+}
 
-
-var mainUSER = new USER(new UserProfile("username", "password", 'user', 'name', '1', 'email', 'address'))
-
-
-USER.prototype.addTransaction = function(id, date, description, amount, tag){
+USER.prototype.addTransaction = function(id, date, description, amount, tag) {
     var newTransaction = new Transaction(id, date, description, amount, tag);
     mainUSER.transactions.push(newTransaction)
-
 }
 
 // Retrieve User from localStorage, with accountNumber as identifier
@@ -100,11 +94,12 @@ function verifyUser(username, password) {
         console.log(userTest);
     }
 }
-var accountCounter = 989086;
+//var accountCounter = 989086;
 
 // Front end Logic
 $(document).ready(function(){
 
+  //var mainUSER = new USER(new UserProfile("username", "password", 'user', 'name', '1', 'email', 'address'));
   //var ricky = createNewUser("ricky", "Rick", "James", "rickjames@bitch.com","1010 Main St", "Portland", "OR", "97214", rickyJsonData);
   //var bobby = createNewUser("bobby", "Rick", "James", "rickjames@bitch.com","1010 Main St", "Portland", "OR", "97214", rickyJsonData);
   //storeUser(ricky);
@@ -132,17 +127,19 @@ $(document).ready(function(){
       var newCity = $('input#new-city').val();
       var newState = $('input#new-state').val();
       var newZip = $('input#new-zip').val();
-      var duplicate = findDuplicate(newUserName);
+      //var duplicate = findDuplicate(newUserName);
       if (duplicate) {
           $('input#new-password').val("");
           $('input#new-username').val("");
           alert("Username unavailable");
       } else {
-          localStorage.setItem('accountCounter', accountCounter+=11);
-          var accountNumber = localStorage.getItem('accountCounter');
-          var newAddress = new Address(newStreet, newCity, newState, newZip);
-          var user = new User(newUserName, newFirstName, newLastName, accountNumber, newEmail, newAddress);
-          users.push(user);
+          //localStorage.setItem('accountCounter', accountCounter+=11);
+          //var accountNumber = localStorage.getItem('accountCounter');
+          //var newAddress = new Address(newStreet, newCity, newState, newZip);
+          //var user = new User(newUserName, newFirstName, newLastName, accountNumber, newEmail, newAddress);
+          //users.push(user);
+
+          createNewUser(newUserName, newFirstName, newLastName, newEmail, newStreet, newCity, newState, newZip, null)
           $('input#new-password').val("");
           $('input#new-username').val("");
           $('input#new-first').val("");
