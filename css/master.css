@@ -1,4 +1,4 @@
-#accountCreator, #accountLogin {
+#account-creator, #account-login {
   display: none;
 }
 
@@ -17,4 +17,8 @@ th{
 }
 table {
     border-spacing: 5px;
+}
+
+#update-trans {
+  display: none;
 }

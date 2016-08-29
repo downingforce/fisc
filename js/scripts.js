@@ -32,7 +32,6 @@ function Transaction (id, date, description, amount, tag) {
     this.tag = tag;
 }
 
-<<<<<<< HEAD
 
 var mainUSER = new USER(new UserProfile("username", "password", 'user', 'name', '1', 'email', 'address'))
 
@@ -119,47 +118,21 @@ var accountCounter = 989086;
 $(document).ready(function(){
 
 
-// Google Table
-google.charts.load('current', {'packages':['table']});
-      google.charts.setOnLoadCallback(drawTable);
-
-      function drawTable() {
-        var data = new google.visualization.DataTable();
-        data.addColumn('string', 'Name');
-        data.addColumn('number', 'Salary');
-        data.addColumn('boolean', 'Full Time Employee');
-        data.addRows([
-          ['Mike',  {v: 10000, f: '$10,000'}, true],
-          ['Jim',   {v:8000,   f: '$8,000'},  false],
-          ['Alice', {v: 12500, f: '$12,500'}, true],
-          ['Bob',   {v: 7000,  f: '$7,000'},  true]
-        ]);
-
-        var table = new google.visualization.Table(document.getElementById('table_div'));
-
-        table.draw(data, {showRowNumber: true, width: '100%', height: '100%'});
-        var selection = table.getSelection();
-        $("#table_div").click(function(){
-        console.log(selection);
-    });
-      }
-      //End Table
 
 
 
-});
 
     $('#goToLogin').click(function() {
-        $('#accountCreator').hide();
-        $('#accountLogin').show();
+        $('#account-creator').hide();
+        $('#account-login').show();
     });
     $('#goToCreate').click(function() {
-        $('#accountLogin').hide();
-        $('#accountCreator').show();
+        $('#account-login').hide();
+        $('#account-creator').show();
     });
     $('#home').click(function() {
-        $('#accountLogin').hide();
-        $('#accountCreator').hide();
+        $('#account-login').hide();
+        $('#account-creator').hide();
     });
     $('#account-creator').submit(function(event){
         event.preventDefault();
