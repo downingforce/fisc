@@ -18,6 +18,9 @@ $(document).ready(function() {
     document.getElementById("trans-id").value = id;
   });
 
+  
+
+
 
   // Add Transaction Input Field
   $('#transaction-input').submit(function(event) {
