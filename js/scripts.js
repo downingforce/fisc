@@ -15,20 +15,19 @@
 // Create New User Account
 
 
-function USER(state){
-    this.state = state;
-    this.userProfile;
+function USER(userProfile){
+    this.userProfile = userProfile;
     this.transactions = [];
+    this.accountNumber;
 }
 
-function User (userName, firstName, lastName, accountNumber, email, address) {
+function UserProfile (userName, password, firstName, lastName, email, address) {
     this.userName = userName;
+    this.password = password;
     this.firstName = firstName;
     this.lastName = lastName;
-    this.accountNumber = accountNumber;
     this.email = email;
     this.address = address;
-    this.transactions = [];
 }
 function Address (street, city, state, zip) {
     this.street = street;
@@ -44,13 +43,15 @@ function Transaction (id, type, date, location, amount, tag) {
     this.tag = tag;
 }
 
-function Tag = (){
-}
-var users = [];
+var mainUSER = new USER(new UserProfile("username", "password", 'user', 'name', '1', 'email', 'address'))
+
+// function Tag = (){
+// }
+// var users = [];
 
 USER.prototype.addTransaction = function(date, location, amount, tag){
     var newTransaction = new Transaction(date, location, amount, tag);
-    USER.
+    USER.transactions.push(newTransaction)
 }
 
 
