@@ -1,14 +1,3 @@
-// Categories //
-// -Rent
-// -Food
-// -Utils
-// -Entertainment
-// -Clothes
-// -Car/Auto/Gas
-// -Vacation
-// -Bills
-// -Gifts
-// -Medical
 
 
 
@@ -44,14 +33,14 @@ function Transaction (id, type, date, location, amount, tag) {
     this.tag = tag;
 }
 
-function Tag = (){
-}
-var users = [];
-
-USER.prototype.addTransaction = function(date, location, amount, tag){
-    var newTransaction = new Transaction(date, location, amount, tag);
-    USER.
-}
+// function Tag = (){
+// }
+// var users = [];
+//
+// USER.prototype.addTransaction = function(date, location, amount, tag){
+//     var newTransaction = new Transaction(date, location, amount, tag);
+//     USER.
+// }
 
 
 
@@ -121,10 +110,13 @@ function verifyUser(username, password) {
         console.log(userTest);
     }
 }
-var accountCounter = 989087;
-// JSON.parse(retrievedObject));
+var accountCounter = 989086;
 // Front end Logic
 $(document).ready(function(){
+
+
+
+});
     $('#goToLogin').click(function() {
         $('#accountCreator').hide();
         $('#accountLogin').show();
@@ -184,4 +176,4 @@ $(document).ready(function(){
     //   currentUser[0].deposit();
     //   localStorage.setItem(currentUser[1],currentUser);
     // });
-});
+// });

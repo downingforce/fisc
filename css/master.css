@@ -5,3 +5,16 @@
 #home {
   float:right;
 }
+table, th, td{
+border: 1px solid black;
+}
+th, td{
+    padding: 15px;
+}
+th{
+    text-align: left;
+    background-color: lightgreen;
+}
+table {
+    border-spacing: 5px;
+}
