@@ -176,7 +176,6 @@ function revealLogin (evt, type) {
 // Front end Logic
 $(document).ready(function(){
 
-
   $("#saveDataBtn").click(function(event){
     saveState();
     event.preventDefault();
