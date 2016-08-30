@@ -1,3 +1,4 @@
+
 var STATENAME="FISCDATA";
 
 var PROGSTATE = {
@@ -54,6 +55,7 @@ function populateTransactions(jsonArray, user) {
     user.transactions.push(transaction);
   }
 }
+
 
 USER.prototype.addTransaction = function(id, date, description, amount, tag) {
     var newTransaction = new Transaction(id, date, description, amount, tag);
@@ -127,6 +129,7 @@ function verifyUser(username, password) {
         }
     }
 }
+
 function refreshUserList () {
 
   $(".user-display").remove();
