@@ -73,7 +73,6 @@ function loadState(){
       PROGSTATE.Users.push(retrieveUser(lsArray.Users[i]));
     }
   }
-  refreshUserList();
 }
 
 function deleteState(){
@@ -161,6 +160,7 @@ $(document).ready(function(){
   });
   $("#loadDataBtn").click(function(event){
     loadState();
+    refreshUserList();
     event.preventDefault();
   });
   $("#clearDataBtn").click(function(event){
@@ -198,6 +198,7 @@ $(document).ready(function(){
     var password = $('input#password').val();
     console.log(username + " : " + password);
     verifyUser(username, password);
+    refreshUserList();
   });
   $('#account-creator').submit(function(event){
     event.preventDefault();
