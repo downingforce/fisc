@@ -1,33 +1,36 @@
 function sortLineChart(transaction){
-  for (var i = 0; i < mainUSER.transactions.length; i++) {
-    var date = new Date(mainUSER.transactions[i].date).getMonth();
-    if (mainUSER.transactions[i].tag === 'Rent') {
-      series[0].data[date] += parseFloat(mainUSER.transactions[i].amount);
+  var thisUser = PROGSTATE.Users[PROGSTATE.CurrentUser];
+
+  for (var i = 0; i < thisUser.transactions.length; i++) {
+    var date = new Date(thisUser.transactions[i].date).getMonth();
+    if (thisUser.transactions[i].tag === 'Rent') {
+      series[0].data[date] += parseFloat(thisUser.transactions[i].amount);
     }
-    if (mainUSER.transactions[i].tag === 'Food') {
-      series[1].data[date] += parseFloat(mainUSER.transactions[i].amount);
+    if (thisUser.transactions[i].tag === 'Food') {
+      series[1].data[date] += parseFloat(thisUser.transactions[i].amount);
     }
-    if (mainUSER.transactions[i].tag === 'Utilities') {
-      series[2].data[date] += parseFloat(mainUSER.transactions[i].amount);
+    if (thisUser.transactions[i].tag === 'Utilities') {
+      series[2].data[date] += parseFloat(thisUser.transactions[i].amount);
     }
-    if (mainUSER.transactions[i].tag === 'Entertainment') {
-      series[3].data[date] += parseFloat(mainUSER.transactions[i].amount);
+    if (thisUser.transactions[i].tag === 'Entertainment') {
+      series[3].data[date] += parseFloat(thisUser.transactions[i].amount);
     }
-    if (mainUSER.transactions[i].tag === 'Clothes') {
-      series[4].data[date] += parseFloat(mainUSER.transactions[i].amount);
+    if (thisUser.transactions[i].tag === 'Clothes') {
+      series[4].data[date] += parseFloat(thisUser.transactions[i].amount);
     }
-    if (mainUSER.transactions[i].tag === 'Automotive') {
-      series[5].data[date] += parseFloat(mainUSER.transactions[i].amount);
+    if (thisUser.transactions[i].tag === 'Automotive') {
+      series[5].data[date] += parseFloat(thisUser.transactions[i].amount);
     }
-    if (mainUSER.transactions[i].tag === 'Bills') {
-      series[6].data[date] += parseFloat(mainUSER.transactions[i].amount);
+    if (thisUser.transactions[i].tag === 'Bills') {
+      series[6].data[date] += parseFloat(thisUser.transactions[i].amount);
     }
-    if (mainUSER.transactions[i].tag === 'Medical') {
-      series[7].data[date] += parseFloat(mainUSER.transactions[i].amount);
+    if (thisUser.transactions[i].tag === 'Medical') {
+      series[7].data[date] += parseFloat(thisUser.transactions[i].amount);
     }
   }
 }
 $(function () {
+  var thisUser = PROGSTATE.Users[PROGSTATE.CurrentUser];
   var rent = 0.0;
   var food = 0.0;
   var utilities = 0.0;
@@ -37,30 +40,30 @@ $(function () {
   var bills = 0.0;
   var medical = 0.0;
 
-  for (var i = 0; i < mainUSER.transactions.length; i++) {
-      if(mainUSER.transactions[i].tag === 'Rent'){
-          rent += parseFloat(mainUSER.transactions[i].amount);
+  for (var i = 0; i < thisUser.transactions.length; i++) {
+      if(thisUser.transactions[i].tag === 'Rent'){
+          rent += parseFloat(thisUser.transactions[i].amount);
       }
-      if(mainUSER.transactions[i].tag === 'Food'){
-          food += parseFloat(mainUSER.transactions[i].amount);
+      if(thisUser.transactions[i].tag === 'Food'){
+          food += parseFloat(thisUser.transactions[i].amount);
       }
-      if(mainUSER.transactions[i].tag === 'Utilities'){
-          utilities += parseFloat(mainUSER.transactions[i].amount);
+      if(thisUser.transactions[i].tag === 'Utilities'){
+          utilities += parseFloat(thisUser.transactions[i].amount);
       }
-      if(mainUSER.transactions[i].tag === 'Entertainment'){
-          entertainment += parseFloat(mainUSER.transactions[i].amount);
+      if(thisUser.transactions[i].tag === 'Entertainment'){
+          entertainment += parseFloat(thisUser.transactions[i].amount);
       }
-      if(mainUSER.transactions[i].tag === 'Clothes'){
-          clothes += parseFloat(mainUSER.transactions[i].amount);
+      if(thisUser.transactions[i].tag === 'Clothes'){
+          clothes += parseFloat(thisUser.transactions[i].amount);
       }
-      if(mainUSER.transactions[i].tag === 'Automotive'){
-          automotive += parseFloat(mainUSER.transactions[i].amount);
+      if(thisUser.transactions[i].tag === 'Automotive'){
+          automotive += parseFloat(thisUser.transactions[i].amount);
       }
-      if(mainUSER.transactions[i].tag === 'Bills'){
-          Bills += parseFloat(mainUSER.transactions[i].amount);
+      if(thisUser.transactions[i].tag === 'Bills'){
+          Bills += parseFloat(thisUser.transactions[i].amount);
       }
-      if(mainUSER.transactions[i].tag === 'Medical'){
-          medical += parseFloat(mainUSER.transactions[i].amount);
+      if(thisUser.transactions[i].tag === 'Medical'){
+          medical += parseFloat(thisUser.transactions[i].amount);
       }
   }
 

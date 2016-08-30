@@ -1,19 +1,14 @@
-
 var STATENAME="FISCDATA";
-
 var PROGSTATE = {
   accountNum: 500,
   Users: [],
   CurrentUser: -1
 };
-
 function USER(userProf, accNum){
     this.userProfile = userProf;
     this.accountNumber = accNum;
     this.transactions = [];
-
 }
-
 function UserProfile (userName, password, firstName, lastName, email, address) {
     this.userName = userName;
     this.password = password;
@@ -59,7 +54,7 @@ function populateTransactions(jsonArray, user) {
 
 USER.prototype.addTransaction = function(id, date, description, amount, tag) {
     var newTransaction = new Transaction(id, date, description, amount, tag);
-    mainUSER.transactions.push(newTransaction)
+    PROGSTATE.Users[PROGSTATE.CurrentUser].transactions.push(newTransaction)
 }
 
 
