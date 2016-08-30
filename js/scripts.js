@@ -8,6 +8,7 @@ function USER(userProfile){
     this.userProfile = userProfile;
     this.transactions = [];
     this.accountNumber;
+    this.income = [];
 }
 
 function UserProfile (userName, password, firstName, lastName, email, address) {
@@ -42,6 +43,11 @@ var mainUSER = new USER(new UserProfile("username", "password", 'user', 'name', 
 USER.prototype.addTransaction = function(id, date, description, amount, tag){
     var newTransaction = new Transaction(id, date, description, amount, tag);
     mainUSER.transactions.push(newTransaction)
+}
+
+USER.prototype.addIncome = function(id, date, description, amount, tag){
+    var newTransaction = new Transaction(id, date, description, amount, tag);
+    mainUSER.income.push(newTransaction)
 }
 
 

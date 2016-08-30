@@ -1,6 +1,4 @@
 
-
-
 function findTrans(id) {
   for (var i = 0; i <= mainUSER.transactions.length; i++) {
     if(mainUSER.transactions[i].transactionID === parseInt(id)) {
@@ -12,7 +10,7 @@ function findTrans(id) {
 $(document).ready(function() {
   // Gets new ID number for Transaction List
   document.getElementById("trans-id").value = mainUSER.transactions.length + 1;
-  //
+  //function creates transaction table
   function refreshTable() {
     $('.transaction-row tr').detach();
     for (var i = 0; i < mainUSER.transactions.length; i++) {
@@ -20,9 +18,10 @@ $(document).ready(function() {
         $('.transaction-row').prepend('<tr class="transaction-item" id="'+id+'"><td>' + mainUSER.transactions[i].transactionID + '</td><td>' + mainUSER.transactions[i].date + '</td><td>' + mainUSER.transactions[i].desc + '</td><td>' + mainUSER.transactions[i].amount + '</td><td>' + mainUSER.transactions[i].tag + '</td></tr>');
     }
   }
+  // end of transaction table
   refreshTable();
 
-
+// function collects id from user click and populates transaction input fields with selected transaction
   $('table').on("click", '.transaction-item' ,function(event) {
     $('#add-trans').hide();
     $('#update-trans').show();
@@ -36,7 +35,8 @@ $(document).ready(function() {
      $('#trans-amt').val(tempObject.amount)
      $('#trans-tag').val(tempObject.tag)
   });
-
+// end of transaction id click function
+// when user clicks, takes input and corrects specific transaction
   $('#update-trans').click(function(event) {
     var transID = document.getElementById("trans-id").value;
     var transDate = document.getElementById("trans-date").value;
@@ -59,10 +59,8 @@ $(document).ready(function() {
     $('#trans-tag').val('')
 
     event.preventDefault();
-
-
   });
-
+// end of transaction update
 
 
 
@@ -70,7 +68,6 @@ $(document).ready(function() {
   $('#transaction-input').submit(function(event) {
 
     var transID = mainUSER.transactions.length + 1
-    console.log('submit entered')
     var userDate = $('#trans-date').val();
     var userDesc = $('#trans-desc').val();
     var userAmt = parseInt($('#trans-amt').val());
@@ -90,4 +87,5 @@ $(document).ready(function() {
 
     event.preventDefault();
   });
+  // end of inital add transaction submit function
 });
