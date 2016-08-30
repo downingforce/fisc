@@ -1,9 +1,4 @@
-
-
-
 // Create New User Account
-
-
 function USER(userProfile){
     this.userProfile = userProfile;
     this.transactions = [];
@@ -31,6 +26,7 @@ function Transaction (id, date, description, amount, tag) {
     this.amount = amount;
     this.tag = tag;
 }
+
 
 
 var mainUSER = new USER(new UserProfile("username", "password", 'user', 'name', '1', 'email', 'address'))
@@ -116,11 +112,6 @@ function verifyUser(username, password) {
 var accountCounter = 989086;
 // Front end Logic
 $(document).ready(function(){
-
-
-
-
-
 
     $('#goToLogin').click(function() {
         $('#account-creator').hide();
