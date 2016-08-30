@@ -139,14 +139,14 @@ function refreshUserList () {
     $("#user-list").append('<li class="user-display">'
                             + PROGSTATE.Users[i].userProfile.userName
                             + '</li>');
-
-    //var accNum = PROGSTATE.Users[i].accountNumber;
-    //var numTrans = PROGSTATE.Users[i].transactions.length;
-    //$(".user-display").last().click(function(){
-    //  debugger;
-    //  alert("Acc Num: " + accNum + " Num Trans: " + numTrans);
-    //});
+    addUserDetails(PROGSTATE.Users[i].accountNumber, PROGSTATE.Users[i].transactions.length);
   }
+}
+
+function addUserDetails (accNum, numTrans) {
+  $(".user-display").last().click(function(){
+    alert("Acc Num: " + accNum + " Num Trans: " + numTrans);
+  });
 }
 
 //var accountCounter = 989086;
@@ -170,6 +170,9 @@ function revealLogin (evt, type) {
 
 // Front end Logic
 $(document).ready(function(){
+  createNewUser("ricky", "abc", "Rick", "James", "rickjames@bitch.com","1010 Main St", "Portland", "OR", "97214", rickyJsonData);
+  sortLineChart();
+  
   $("#saveDataBtn").click(function(event){
     saveState();
     event.preventDefault();
