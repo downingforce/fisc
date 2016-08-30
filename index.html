@@ -5,16 +5,29 @@
     <link rel="stylesheet" href="css/bootstrap.css" media="screen">
     <link rel="stylesheet" href="css/master.css" media="screen">
     <script src="js/jquery-3.1.0.js"></script>
+    <script src="js/data.js"></script>
     <script src="js/scripts.js"></script>
     <title>fisc</title>
   </head>
   <body>
-    <h1>testing</h1>
+    <nav class="navbar navbar-default navbar-fixed-top" id="topnav">
+      <div class="container">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#">FISC Testing</a>
+        </div>
+        <div id="navbar" class="navbar-collapse navbar-right">
+          <button id="saveDataBtn" type="button" class="btn btn-md btn-danger navbar-btn">Save Data</button>
+          <button id="loadDataBtn" type="button" class="btn btn-md btn-danger navbar-btn">Load Data</button>
+          <button id="clearDataBtn" type="button" class="btn btn-md btn-danger navbar-btn">Clear Data</button>
+          <button id="loadDummyBtn" type="button" class="btn btn-md btn-danger navbar-btn">Load Dummy Users</button>
+          <button id="refreshUserList" type="button" class="btn btn-md btn-danger navbar-btn">Refresh User List</button>
+        </div>
+      </div>
+    </nav>
     <div class="container">
       <div class="jumbotron container-fluid">
         <button id="goToLogin" class="btn btn-success" type="button" name="button">Login</button>
         <button id="goToCreate" class="btn btn-success" type="button" name="button">Create Account</button>
-        <button id="home" type="button" class="btn" name="button">Home</button>
       </div>
       <form id="account-creator" autocomplete="off">
         <div class="jumbotron container-fluid">
@@ -45,11 +58,13 @@
           <button id="loginSubmit" type="submit" name="button" class="btn btn-success">Login</button>
         </div>
       </form>
+      <div class="jumbotron container-fluid">
+        <h3>Current User: </h3>
+        <div id="current-user"><span class="user-display">None</span></div>
+        <h3>User List: </h3>
+        <ol id="user-list">
+        </ol>
+      </div>
     </div>
-    <ul id='balance'>
-
-    </ul>
-
-
   </body>
 </html>
