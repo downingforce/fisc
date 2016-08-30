@@ -49,9 +49,18 @@ $(document).ready(function() {
     mainUSER.transactions[transID-1].amount = transAmt;
     mainUSER.transactions[transID-1].tag = transTag;
     refreshTable();
+
+    $('#add-trans').show();
+    $('#update-trans').hide();
+
+    $('#trans-date').val('')
+    $('#trans-desc').val('')
+    $('#trans-amt').val('')
+    $('#trans-tag').val('')
+
     event.preventDefault();
-    debugger;
-    
+
+
   });
 
 
