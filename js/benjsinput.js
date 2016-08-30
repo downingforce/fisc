@@ -1,19 +1,20 @@
 
 function findTrans(id) {
-  for (var i = 0; i <= mainUSER.transactions.length; i++) {
-    if(mainUSER.transactions[i].transactionID === parseInt(id)) {
-      return mainUSER.transactions[i];
+  var thisUser = PROGSTATE.Users[PROGSTATE.CurrentUser];
+  for (var i = 0; i <= thisUser.transactions.length; i++) {
+    if(thisUser.transactions[i].transactionID === parseInt(id)) {
+      return thisUser.transactions[i];
     }
   }
 }
 
 $(document).ready(function() {
   // Gets new ID number for Transaction List
-  document.getElementById("trans-id").value = mainUSER.transactions.length + 1;
+  document.getElementById("trans-id").value = PROGSTATE.Users[PROGSTATE.CurrentUser].transactions.length + 1;
   //function creates transaction table
   function refreshTable() {
     $('.transaction-row tr').detach();
-    for (var i = 0; i < mainUSER.transactions.length; i++) {
+    for (var i = 0; i < PROGSTATE.Users[PROGSTATE.CurrentUser].transactions.length; i++) {
       id = i + 1;
         $('.transaction-row').prepend('<tr class="transaction-item" id="'+id+'"><td>' + mainUSER.transactions[i].transactionID + '</td><td>' + mainUSER.transactions[i].date + '</td><td>' + mainUSER.transactions[i].desc + '</td><td>' + mainUSER.transactions[i].amount + '</td><td>' + mainUSER.transactions[i].tag + '</td></tr>');
     }
@@ -44,10 +45,10 @@ $(document).ready(function() {
     var transAmt = document.getElementById("trans-amt").value;
     var transTag = document.getElementById("trans-tag").value;
 
-    mainUSER.transactions[transID-1].date = transDate;
-    mainUSER.transactions[transID-1].desc = transDesc;
-    mainUSER.transactions[transID-1].amount = transAmt;
-    mainUSER.transactions[transID-1].tag = transTag;
+    PROGSTATE.Users[PROGSTATE.CurrentUser].transactions[transID-1].date = transDate;
+    PROGSTATE.Users[PROGSTATE.CurrentUser].transactions[transID-1].desc = transDesc;
+    PROGSTATE.Users[PROGSTATE.CurrentUser].transactions[transID-1].amount = transAmt;
+    PROGSTATE.Users[PROGSTATE.CurrentUser].transactions[transID-1].tag = transTag;
     refreshTable();
 
     $('#add-trans').show();
@@ -63,27 +64,27 @@ $(document).ready(function() {
 // end of transaction update
 
 
-  
+
 
 
 
   // Add Transaction Input Field
   $('#transaction-input').submit(function(event) {
 
-    var transID = mainUSER.transactions.length + 1
+    var transID = PROGSTATE.Users[PROGSTATE.CurrentUser].transactions.length + 1
     var userDate = $('#trans-date').val();
     var userDesc = $('#trans-desc').val();
     var userAmt = parseInt($('#trans-amt').val());
     var userTag = $('#trans-tag').val();
 
-    mainUSER.addTransaction(transID, userDate, userDesc, userAmt, userTag);
+    PROGSTATE.Users[PROGSTATE.CurrentUser].addTransaction(transID, userDate, userDesc, userAmt, userTag);
 
     $('#trans-date').val('')
     $('#trans-desc').val('')
     $('#trans-amt').val('')
 
 
-    document.getElementById("trans-id").value = mainUSER.transactions.length + 1;
+    document.getElementById("trans-id").value = PROGSTATE.Users[PROGSTATE.CurrentUser].transactions.length + 1;
     refreshTable();
 
 
