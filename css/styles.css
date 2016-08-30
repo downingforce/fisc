@@ -291,3 +291,11 @@ p.copyright {
     padding-top: 20%;
     padding-bottom: 20%;
 }
+
+#transaction-list tr.even:hover {
+	background-color: #ECFFB3;
+}
+
+#transaction-list tr.odd:hover {
+	background-color: #E6FF99;
+}

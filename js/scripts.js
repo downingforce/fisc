@@ -254,5 +254,8 @@ $(document).ready(function(){
       $('#account-creator').hide();
       refreshUserList();
     }
+    $('#account-creator').submit(function(event){
+      event.preventDefault();
+
   });
 });
