@@ -10,6 +10,7 @@ function USER(userProf, accNum){
     this.userProfile = userProf;
     this.accountNumber = accNum;
     this.transactions = [];
+
 }
 
 function UserProfile (userName, password, firstName, lastName, email, address) {
@@ -59,9 +60,11 @@ USER.prototype.addTransaction = function(id, date, description, amount, tag) {
     mainUSER.transactions.push(newTransaction)
 }
 
+
 function saveState(){
   localStorage.setItem(STATENAME, JSON.stringify(PROGSTATE));
 }
+
 
 function loadState(){
   var lsArray = JSON.parse(localStorage.getItem(STATENAME));

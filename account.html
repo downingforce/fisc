@@ -7,6 +7,9 @@
     <script src="js/jquery-3.1.0.js"></script>
     <script src="js/scripts.js"></script>
     <script src="js/benjsinput.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.12/css/jquery.dataTables.css">
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.js"></script>
+
 
     <title>Your Account</title>
 </head>
@@ -41,8 +44,16 @@
               <option value="Automotive">Automotive</option>
               <option value="Bills">Bills</option>
               <option value="Medical">Medical</option>
+              <option value="Income">Income</option>
             </select>
           </div>
+          <div class="form-group">
+          </div>
+
+
+
+
+
           <button id="add-trans" type="submit" class="btn btn-success" name="button">Add A Transaction</button>
           <button id="update-trans" type="submit" class="btn btn-success" name="button">Update your Transaction</button>
         </div>
@@ -53,36 +64,20 @@
 
       </form>
     </div>
-    <table class="transactions">
+    <table id="transaction-list" class="transactions">
         <caption>Transaction history</caption>
-        <tr id='table-head'>
-
-            <th>
-                ID
-            </th>
-            <th>
-                Date
-            </th>
-            <th>
-                Description
-            </th>
-            <th>
-                Amount
-            </th>
-            <th>
-                Tags
-            </th>
-
-        </tr>
-
-        <div class="transaction-list">
-          <p>
-            test
-          </p>
+        <thead>
+            <tr>
+              <th>ID</th>
+              <th>Date</th>
+              <th>Description</th>
+              <th>Amount</th>
+              <th>Tags</th>
+            </tr>
+        </thead>
           <tbody class='transaction-row'>
 
           </tbody>
-        </div>
     </table>
 </body>
 </html>
