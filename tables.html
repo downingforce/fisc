@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <link rel="stylesheet" href="css/bootstrap.css" media="screen">
     <link rel="stylesheet" href="css/master.css" media="screen">
+    <link rel="stylesheet" href="css/styles.css" media="screen">
     <script src="js/jquery-3.1.0.js"></script>
     <script src="https://code.highcharts.com/highcharts.js"></script>
     <script src="https://code.highcharts.com/modules/exporting.js"></script>
@@ -51,17 +52,12 @@
           </div>
           <div class="form-group">
           </div>
-
-
-
-
-
-          <button id="add-trans" type="submit" class="btn btn-success" name="button">Add A Transaction</button>
-          <button id="update-trans" type="submit" class="btn btn-success" name="button">Update your Transaction</button>
+          <button id="add-trans" type="button" class="btn btn-success" name="button">Add A Transaction</button>
+          <button id="update-trans" type="button" class="btn btn-success" name="button">Update your Transaction</button>
         </div>
       </form>
     </div>
-    <table id="transaction-list" class="transactions">
+    <table id="transaction-list" class="transactions hover">
         <caption>Transaction history</caption>
         <thead>
             <tr>
