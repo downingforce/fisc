@@ -63,6 +63,9 @@ $(document).ready(function() {
 // end of transaction update
 
 
+  
+
+
 
   // Add Transaction Input Field
   $('#transaction-input').submit(function(event) {
