@@ -1,14 +1,19 @@
+
 var STATENAME="FISCDATA";
+
 var PROGSTATE = {
   accountNum: 500,
   Users: [],
   CurrentUser: -1
 };
+
 function USER(userProf, accNum){
     this.userProfile = userProf;
     this.accountNumber = accNum;
     this.transactions = [];
+
 }
+
 function UserProfile (userName, password, firstName, lastName, email, address) {
     this.userName = userName;
     this.password = password;
@@ -54,7 +59,7 @@ function populateTransactions(jsonArray, user) {
 
 USER.prototype.addTransaction = function(id, date, description, amount, tag) {
     var newTransaction = new Transaction(id, date, description, amount, tag);
-    PROGSTATE.Users[PROGSTATE.CurrentUser].transactions.push(newTransaction)
+    mainUSER.transactions.push(newTransaction)
 }
 
 
@@ -139,14 +144,14 @@ function refreshUserList () {
     $("#user-list").append('<li class="user-display">'
                             + PROGSTATE.Users[i].userProfile.userName
                             + '</li>');
-    addUserDetails(PROGSTATE.Users[i].accountNumber, PROGSTATE.Users[i].transactions.length);
-  }
-}
 
-function addUserDetails (accNum, numTrans) {
-  $(".user-display").last().click(function(){
-    alert("Acc Num: " + accNum + " Num Trans: " + numTrans);
-  });
+    //var accNum = PROGSTATE.Users[i].accountNumber;
+    //var numTrans = PROGSTATE.Users[i].transactions.length;
+    //$(".user-display").last().click(function(){
+    //  debugger;
+    //  alert("Acc Num: " + accNum + " Num Trans: " + numTrans);
+    //});
+  }
 }
 
 //var accountCounter = 989086;
@@ -170,9 +175,7 @@ function revealLogin (evt, type) {
 
 // Front end Logic
 $(document).ready(function(){
-  createNewUser("ricky", "abc", "Rick", "James", "rickjames@bitch.com","1010 Main St", "Portland", "OR", "97214", rickyJsonData);
-  sortLineChart();
-  
+
   $("#saveDataBtn").click(function(event){
     saveState();
     event.preventDefault();
@@ -251,6 +254,8 @@ $(document).ready(function(){
       $('#account-creator').hide();
       refreshUserList();
     }
-  });
+    $('#account-creator').submit(function(event){
+      event.preventDefault();
 
+  });
 });
