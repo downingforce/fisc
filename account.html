@@ -7,15 +7,13 @@
     <script src="js/jquery-3.1.0.js"></script>
     <script src="https://code.highcharts.com/highcharts.js"></script>
     <script src="https://code.highcharts.com/modules/exporting.js"></script>
-    <script src="js/data.js"></script>
-    <script src="js/scripts.js"></script>
-    <script src="js/charts.js"></script>
-    <script src="js/benjsinput.js"></script>
-    <script src="js/tables.js"></script>
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.12/css/jquery.dataTables.css">
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.js"></script>
-
-
+    <script src="js/scripts.js"></script>
+    <!-- <script src="js/benjsinput.js"></script> -->
+    <script src="js/data.js"></script>
+    <script src="js/charts.js"></script>
+    <script src="js/tables.js"></script>
     <title>Your Account</title>
 </head>
 <body>
@@ -59,8 +57,8 @@
 
 
 
-          <button id="add-trans" type="submit" class="btn btn-success" name="button">Add A Transaction</button>
-          <button id="update-trans" type="submit" class="btn btn-success" name="button">Update your Transaction</button>
+          <button id="add-trans" type="button" class="btn btn-success" name="button">Add A Transaction</button>
+          <button id="update-trans" type="button" class="btn btn-success" name="button">Update your Transaction</button>
         </div>
 
         <hr>
@@ -71,7 +69,7 @@
 
       </form>
     </div>
-    <table id="transaction-list" class="transactions">
+    <table id="transaction-list" class="transactions hover">
         <caption>Transaction history</caption>
         <thead>
             <tr>
@@ -86,6 +84,7 @@
 
           </tbody>
     </table>
+
 
 
 
