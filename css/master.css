@@ -22,3 +22,7 @@ table {
 #update-trans {
   display: none;
 }
+
+body {
+  padding-top: 70px;
+}
