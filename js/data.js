@@ -12,9 +12,6 @@ function randomData() {
 }
 
 
-"description":"fisc","amount":"5000","tag":"income"
-"description":"Capital Properties","amount":"3000","tag":"rent"
-
 
 var newuserdata = [{"transactionID":1,"date":"2015-08-29","description":"Sassys","amount":"4500","tag":"income"},
 {"transactionID":2,"date":"2015-08-29","description":"Capital Properties","amount":"1300","tag":"rent"},
