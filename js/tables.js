@@ -1,11 +1,19 @@
 
+var transactionData = [];
+for (var i = 0; i < PROGSTATE.Users[PROGSTATE.CurrentUser].transactions.length; i++) {
+  array = [PROGSTATE.Users[PROGSTATE.CurrentUser].transactions[i].transactionID, PROGSTATE.Users[PROGSTATE.CurrentUser].transactions[i].date, PROGSTATE.Users[PROGSTATE.CurrentUser].transactions[i].description,PROGSTATE.Users[PROGSTATE.CurrentUser].transactions[i].amount,PROGSTATE.Users[PROGSTATE.CurrentUser].transactions[i].tag]
+  transactionData.push(array);
+}
+
 function findTrans(id) {
+    debugger;
   var thisUser = PROGSTATE.Users[PROGSTATE.CurrentUser];
   for (var i = 0; i <= thisUser.transactions.length; i++) {
     if(thisUser.transactions[i].transactionID === parseInt(id)) {
       return thisUser.transactions[i];
     }
   }
+
 }
 
 // Converts Transactions object into array for table

@@ -7,6 +7,7 @@
 
 
 var ricky = createNewUser("ricky", "abc", "Rick", "James", "rickjames@bitch.com","1010 Main St", "Portland", "OR", "97214");
+
 PROGSTATE.CurrentUser = 0;
 PROGSTATE.Users[PROGSTATE.CurrentUser].transactions = [{"transactionID":1,"date":"2015-08-29","description":"fisc","amount":"25786","tag":"income"},
 {"transactionID":2,"date":"2015-08-01","description":"Capital Properties","amount":"2500","tag":"rent"},
@@ -1008,10 +1009,3 @@ PROGSTATE.Users[PROGSTATE.CurrentUser].transactions = [{"transactionID":1,"date"
 {"transactionID":998,"date":"2016-06-08","description":"Oregon Theater","amount":"77.08","tag":"entertainment"},
 {"transactionID":999,"date":"2016-08-01","description":"Oregon Theater","amount":"130.54","tag":"entertainment"},
 {"transactionID":1000,"date":"2016-08-29","description":"Tacobell","amount":"25.98","tag":"food"}]
-
-
-var transactionData = [];
-for (var i = 0; i < PROGSTATE.Users[PROGSTATE.CurrentUser].transactions.length; i++) {
-  array = [PROGSTATE.Users[PROGSTATE.CurrentUser].transactions[i].transactionID, PROGSTATE.Users[PROGSTATE.CurrentUser].transactions[i].date, PROGSTATE.Users[PROGSTATE.CurrentUser].transactions[i].description,PROGSTATE.Users[PROGSTATE.CurrentUser].transactions[i].amount,PROGSTATE.Users[PROGSTATE.CurrentUser].transactions[i].tag]
-  transactionData.push(array);
-}
