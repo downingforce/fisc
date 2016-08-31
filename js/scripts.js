@@ -259,3 +259,4 @@ $(document).ready(function(){
 
   });
 });
+});
