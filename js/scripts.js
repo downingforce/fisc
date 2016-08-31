@@ -203,17 +203,12 @@ $(document).ready(function(){
   });
 
   $('#goToLogin').click(function() {
-      $('#account-creator').hide();
-      $('#account-login').show();
+    $('#introrow').hide();
+    $('#loginrow').show();
+    $('#account-creator').show();
+    $('#account-login').show();
   });
-  $('#goToCreate').click(function() {
-      $('#account-login').hide();
-      $('#account-creator').show();
-  });
-  $('#home').click(function() {
-      $('#account-login').hide();
-      $('#account-creator').hide();
-  });
+
   $('#loginSubmit').click(function(event) {
     event.preventDefault();
     var username = $('input#username').val();
@@ -222,6 +217,12 @@ $(document).ready(function(){
     verifyUser(username, password);
     refreshUserList();
   });
+
+  $('#registerSubmit').click(function(event) {
+    event.preventDefault();
+  
+  });
+
   $('#account-creator').submit(function(event){
     event.preventDefault();
     var newUserName = $('input#new-username').val();
@@ -254,9 +255,6 @@ $(document).ready(function(){
       $('#account-creator').hide();
       refreshUserList();
     }
-    $('#account-creator').submit(function(event){
-      event.preventDefault();
 
-  });
 });
 });
