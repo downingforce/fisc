@@ -1,5 +1,17 @@
 // Home Depot, Trader Joes, New Seasons, Jiffy Lube, Lowes,  Walmart, Sassys, BW3s, Fred Meyer, Multnomah County, Target, Starbucks, Arco, Costco, Oregon Theater, Shell, Exxon Mobil, Autozone, Chipoltle, Tacobell, Coccoa, Netflix, Amazon, PGE, Northwest Natural
 // food, auto, home-improvement, work, rent, medical, bills, utilities
+function randomData() {
+  var rand = Math.random();
+  if (rand < .33) {
+    return newuserdata;
+  } else if ((rand >= .33) && (rand < .66)){
+    return newuserdata2;
+  } else {
+    return newuserdata3;
+  }
+}
+
+
 var newuserdata = [{"transactionID":1,"date":"2015-11-22","description":"Netflix","amount":"50.66","tag":"entertainment"},
 {"transactionID":2,"date":"2016-01-13","description":"Netflix","amount":"172.22","tag":"entertainment"},
 {"transactionID":3,"date":"2016-08-03","description":"Arco","amount":"111.61","tag":"automotive"},
