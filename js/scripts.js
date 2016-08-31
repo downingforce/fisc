@@ -258,6 +258,13 @@ $(document).ready(function(){
   });
 
   $('#goToLogin').click(function() {
+    $('#introrow').hide();
+    $('#loginrow').show();
+    $('#account-creator').show();
+    $('#account-login').show();
+  });
+
+  $('#loginSubmit').click(function(event) {
       $('#account-login').show();
   });
 
@@ -291,6 +298,7 @@ $(document).ready(function(){
   });
 
   $('button#account-login-submit').click(function(event) {
+
     event.preventDefault();
     var username = $('input#account-login-username').val();
     var password = $('input#account-login-password').val();
@@ -317,7 +325,7 @@ $(document).ready(function(){
       $('#account-creator').hide();
       refreshUserList();
     }
-  });
+    });
 
   $('button#change-password-submit').click(function(event) {
     event.preventDefault();
@@ -339,6 +347,7 @@ $(document).ready(function(){
       $('#delete-user').hide();
     }
   });
+
 });
 
 
