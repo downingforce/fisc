@@ -64,7 +64,7 @@ function populateTransactions(jsonArray, user) {
 
 USER.prototype.addTransaction = function(id, date, description, amount, tag) {
     var newTransaction = new Transaction(id, date, description, amount, tag);
-    mainUSER.transactions.push(newTransaction);
+    this.transactions.push(newTransaction);
 }
 
 function logoutUser(){
@@ -256,7 +256,7 @@ $(document).ready(function(){
   });
 
   $("#loadDummyBtn").click(function(event){
-  
+
     var ricky = createNewUser("ricky", "900150983cd24fb0d6963f7d28e17f72", "Rick", "James", "rickjames@bitch.com","1010 Main St", "Portland", "OR", "97214", rickyJsonData);
     var bobby = createNewUser("bobby", "d16fb36f0911f878998c136191af705e", "Bobby", "Dean", "bobby@bitch.com","1010 Main St", "Portland", "OR", "97214", rickyJsonData);
     //var bobby = createNewUser("johnny", "202cb962ac59075b964b07152d234b70", "Johnny", "Depp", "Johnny@bitch.com","1010 Main St", "Portland", "OR", "97214", null);
