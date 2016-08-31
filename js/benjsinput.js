@@ -39,31 +39,9 @@ $(document).ready(function() {
      $('#trans-tag').val(tempObject.tag)
   });
 // end of transaction id click function
-// when user clicks, takes input and corrects specific transaction
-  $('#update-trans').click(function(event) {
-    var transID = document.getElementById("trans-id").value;
-    var transDate = document.getElementById("trans-date").value;
-    var transDesc = document.getElementById("trans-desc").value;
-    var transAmt = document.getElementById("trans-amt").value;
-    var transTag = document.getElementById("trans-tag").value;
 
-    PROGSTATE.Users[PROGSTATE.CurrentUser].transactions[transID-1].date = transDate;
-    PROGSTATE.Users[PROGSTATE.CurrentUser].transactions[transID-1].desc = transDesc;
-    PROGSTATE.Users[PROGSTATE.CurrentUser].transactions[transID-1].amount = transAmt;
-    PROGSTATE.Users[PROGSTATE.CurrentUser].transactions[transID-1].tag = transTag;
-    refreshTable();
 
-    $('#add-trans').show();
-    $('#update-trans').hide();
 
-    $('#trans-date').val('')
-    $('#trans-desc').val('')
-    $('#trans-amt').val('')
-    $('#trans-tag').val('')
-
-    event.preventDefault();
-  });
-// end of transaction update
 
 
 

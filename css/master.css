@@ -337,3 +337,33 @@ h1 {
 	background-color: #E6FF99;
 }
 /*End of Data Table*/
+
+
+/*#line-chart {
+  display: none;
+}*/
+
+#pie-chart {
+  display: none;
+  width: 100%;
+  height: auto;
+}
+
+#budget-chart {
+  display:none;
+}
+#budget-total{
+  position: relative;
+  width: 100%;
+  height: 30px;
+  background-color: red;
+}
+#budget-left{
+  position: absolute;
+  width: 1%;
+  height: 100%;
+  background-color: green;
+}
+#budget-chart{
+  text-align: center;
+}
