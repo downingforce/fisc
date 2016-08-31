@@ -2,7 +2,7 @@
 var STATENAME="FISCDATA";
 
 var PROGSTATE = {
-  accountNum: 500,
+  accountNum: 1000,
   Users: [],
   CurrentUser: -1
 };
@@ -11,7 +11,6 @@ function USER(userProf, accNum){
     this.userProfile = userProf;
     this.accountNumber = accNum;
     this.transactions = [];
-
 }
 
 function UserProfile (userName, password, firstName, lastName, email, address) {
@@ -37,16 +36,23 @@ function Transaction (id, date, description, amount, tag) {
 }
 
 function createNewUser(userName, password, firstName, lastName, email, street, city, state, zip, jsonData) {
-  var accountNumber = PROGSTATE.accountNum++;
+  for(var i=0; i<PROGSTATE.Users.length; ++i){
+    if(PROGSTATE.Users[i].userProfile.userName === userName){
+      alert("Try again, the user name <" + userName + "> is taken.");
+      return false;
+    }
+  }
   var newUserProfile = new UserProfile(userName, password, firstName, lastName, email, new Address (street, city, state, zip));
-  var newUser = new USER(newUserProfile, accountNumber);
+  var newUser = new USER(newUserProfile, PROGSTATE.accountNum++);
+
   if(jsonData != null){
     populateTransactions(jsonData, newUser);
   }
 
   PROGSTATE.Users.push(newUser);
   PROGSTATE.CurrentUser = PROGSTATE.Users.length - 1;
-  // loginUser(CurrentUser);
+  saveState();
+  return true;
 }
 
 function populateTransactions(jsonArray, user) {
@@ -56,37 +62,40 @@ function populateTransactions(jsonArray, user) {
   }
 }
 
-
 USER.prototype.addTransaction = function(id, date, description, amount, tag) {
     var newTransaction = new Transaction(id, date, description, amount, tag);
-    mainUSER.transactions.push(newTransaction)
+    mainUSER.transactions.push(newTransaction);
 }
 
+function logoutUser(){
+  alert(PROGSTATE.Users[PROGSTATE.CurrentUser].userProfile.userName + " has been logged out");
+  PROGSTATE.CurrentUser = -1;
+  saveState();
+  refreshUserList();
+}
 
 function saveState(){
   localStorage.setItem(STATENAME, JSON.stringify(PROGSTATE));
 }
 
-
 function loadState(){
   var lsArray = JSON.parse(localStorage.getItem(STATENAME));
-  if(lsArray === null)
-    alert("No Saved Data Exists");
+  if(lsArray === null) {
+    return false;
+  }
   else {
     PROGSTATE.accountNum = lsArray.accountNum;
+    PROGSTATE.CurrentUser = lsArray.CurrentUser;
+    PROGSTATE.Users = [];
     for (var i=0; i<lsArray.Users.length; ++i) {
       PROGSTATE.Users.push(retrieveUser(lsArray.Users[i]));
     }
+    return true;
   }
 }
 
 function deleteState(){
   localStorage.removeItem(STATENAME);
-}
-
-// Send User to localStorage, with accountNumber as identifier
-function storeUser(User){
-  localStorage.setItem(User.accountNumber, JSON.stringify(User));
 }
 
 // restore users from a local storage object array
@@ -108,31 +117,70 @@ function retrieveUser(lsArray) {
 
 // Verify user and password
 function verifyUser(username, password) {
-    var userIndex = null;
-    for(var i=0; i<PROGSTATE.Users.length; ++i){
-      if(PROGSTATE.Users[i].userProfile.userName === username){
-        userIndex = i;
-        console.log("Found Name");
-      }
-    }
+  var userIndex = null;
+  for(var i=0; i<PROGSTATE.Users.length; ++i)
+    if(PROGSTATE.Users[i].userProfile.userName === username)
+      userIndex = i;
 
-    if (userIndex === null) {
-        return alert('Username not found');
+  if (userIndex === null) {
+      alert('Username not found');
+      return false;
+  } else {
+    if (PROGSTATE.Users[userIndex].userProfile.password === md5(password)) {
+      alert("Welcome " + PROGSTATE.Users[userIndex].userProfile.userName);
+      PROGSTATE.CurrentUser = userIndex;
+      saveState();
+      return true;
     } else {
-        if (PROGSTATE.Users[userIndex].userProfile.password === password) {
-            console.log("Found Password");
-            alert("Welcome " + PROGSTATE.Users[userIndex].userProfile.userName);
-            PROGSTATE.CurrentUser = userIndex;
-            // loginUser(userIndex);
-        } else {
-            alert("Please enter the correct Password");
-        }
+      alert("Please enter the correct Password");
+      return false;
     }
+  }
+}
+
+function changePassword(pwCurrent, pwNew1, pwNew2) {
+  if(PROGSTATE.CurrentUser < 0) {
+    alert("Please login first");
+    return false;
+  }
+
+  if (PROGSTATE.Users[PROGSTATE.CurrentUser].userProfile.password === md5(pwCurrent)) {
+      if(pwNew1 != pwNew2){
+        alert("Try Again, Passwords do not match");
+        return false;
+      }
+      else{
+        PROGSTATE.Users[PROGSTATE.CurrentUser].userProfile.password = md5(pwNew1);
+        alert("Password has been changed");
+        saveState();
+        return true;
+      }
+  } else {
+      alert("Current Password is Incorrect");
+      return false;
+  }
+}
+
+function deleteCurrentUser(password){
+  if(PROGSTATE.CurrentUser < 0) {
+    alert("Please login first");
+    return false;
+  }
+  if (PROGSTATE.Users[PROGSTATE.CurrentUser].userProfile.password === md5(password)) {
+    PROGSTATE.Users.splice(PROGSTATE.CurrentUser, 1);
+    alert("Account has been deleted");
+    PROGSTATE.CurrentUser = -1;
+    saveState();
+    return true;
+  } else {
+      alert("Password is Incorrect");
+      return false;
+  }
 }
 
 function refreshUserList () {
-
   $(".user-display").remove();
+  $(".user-details").remove();
   if(PROGSTATE.CurrentUser >=0) {
     $("#current-user").append('<span class="user-display">'
                             + PROGSTATE.Users[PROGSTATE.CurrentUser].userProfile.userName
@@ -141,20 +189,18 @@ function refreshUserList () {
     $("#current-user").append('<span class="user-display">None</span>');
   }
   for(var i=0; i<PROGSTATE.Users.length; ++i){
-    $("#user-list").append('<li class="user-display">'
+    $("#user-list").append('<li class="user-display"><span class="user-details">'
                             + PROGSTATE.Users[i].userProfile.userName
-                            + '</li>');
-
-    //var accNum = PROGSTATE.Users[i].accountNumber;
-    //var numTrans = PROGSTATE.Users[i].transactions.length;
-    //$(".user-display").last().click(function(){
-    //  debugger;
-    //  alert("Acc Num: " + accNum + " Num Trans: " + numTrans);
-    //});
+                            + '</span></li>');
+    addListInfo(PROGSTATE.Users[i].accountNumber, PROGSTATE.Users[i].transactions.length)
   }
 }
 
-//var accountCounter = 989086;
+function addListInfo(accNum, numTrans) {
+  $(".user-details").last().click(function(){
+   alert("Acc Num: " + accNum + " Num Trans: " + numTrans);
+  });
+}
 
 // Login Function
 function revealLogin (evt, type) {
@@ -176,27 +222,36 @@ function revealLogin (evt, type) {
 // Front end Logic
 $(document).ready(function(){
 
+  loadState();
+  refreshUserList();
+
   $("#saveDataBtn").click(function(event){
     saveState();
     event.preventDefault();
   });
+
   $("#loadDataBtn").click(function(event){
-    loadState();
+    if(!loadState())
+      alert("No Saved Data Exists");
     refreshUserList();
     event.preventDefault();
   });
+
   $("#clearDataBtn").click(function(event){
     deleteState();
     event.preventDefault();
   });
+
   $("#loadDummyBtn").click(function(event){
-    var ricky = createNewUser("ricky", "abc", "Rick", "James", "rickjames@bitch.com","1010 Main St", "Portland", "OR", "97214", rickyJsonData);
-    var bobby = createNewUser("bobby", "xyz", "Bobby", "Dean", "bobby@bitch.com","1010 Main St", "Portland", "OR", "97214", rickyJsonData);
-    var bobby = createNewUser("johnny", "123", "Johnny", "Depp", "Johnny@bitch.com","1010 Main St", "Portland", "OR", "97214", null);
+    var ricky = createNewUser("ricky", "900150983cd24fb0d6963f7d28e17f72", "Rick", "James", "rickjames@bitch.com","1010 Main St", "Portland", "OR", "97214", rickyJsonData);
+    var bobby = createNewUser("bobby", "d16fb36f0911f878998c136191af705e", "Bobby", "Dean", "bobby@bitch.com","1010 Main St", "Portland", "OR", "97214", rickyJsonData);
+    var bobby = createNewUser("johnny", "202cb962ac59075b964b07152d234b70", "Johnny", "Depp", "Johnny@bitch.com","1010 Main St", "Portland", "OR", "97214", null);
+
     refreshUserList();
      $("#loadDummyBtn").prop('disabled', true);
     event.preventDefault();
   });
+
   $("#refreshUserList").click(function(event){
     refreshUserList();
     event.preventDefault();
@@ -210,17 +265,48 @@ $(document).ready(function(){
   });
 
   $('#loginSubmit').click(function(event) {
-    event.preventDefault();
-    var username = $('input#username').val();
-    var password = $('input#password').val();
-    console.log(username + " : " + password);
-    verifyUser(username, password);
-    refreshUserList();
+      $('#account-login').show();
   });
 
-  $('#registerSubmit').click(function(event) {
+  $("#logoutUserBtn").click(function(event){
+    if(PROGSTATE.CurrentUser === -1) {
+      alert("Please login first");
+    } else {
+      logoutUser();
+    }
     event.preventDefault();
-  
+  });
+
+  $('#goToCreate').click(function() {
+      $('#account-creator').show();
+  });
+
+  $('#goToChangePassword').click(function() {
+    if(PROGSTATE.CurrentUser === -1) {
+      alert("Please login first");
+    } else {
+      $('#change-password').show();
+    }
+  });
+
+  $('#goToDeleteUser').click(function() {
+    if(PROGSTATE.CurrentUser === -1) {
+      alert("Please login first");
+    } else {
+      $('#delete-user').show();
+    }
+  });
+
+  $('button#account-login-submit').click(function(event) {
+
+    event.preventDefault();
+    var username = $('input#account-login-username').val();
+    var password = $('input#account-login-password').val();
+    if(verifyUser(username, password)) {
+      $('input.clearData').val("");
+      $('#account-login').hide();
+      refreshUserList();
+    }
   });
 
   $('#account-creator').submit(function(event){
@@ -234,27 +320,32 @@ $(document).ready(function(){
     var newCity = $('input#new-city').val();
     var newState = $('input#new-state').val();
     var newZip = $('input#new-zip').val();
-    //var duplicate = findDuplicate(newUserName);
-    var duplicate = 0;
-    if (duplicate) {
-        $('input#new-password').val("");
-        $('input#new-username').val("");
-        alert("Username unavailable");
-    }
-    else {
-      createNewUser(newUserName, newPassword, newFirstName, newLastName, newEmail, newStreet, newCity, newState, newZip, null);
-      $('input#new-password').val("");
-      $('input#new-username').val("");
-      $('input#new-first').val("");
-      $('input#new-last').val("");
-      $('input#new-email').val("");
-      $('input#new-street').val("");
-      $('input#new-city').val("");
-      $('input#new-state').val("");
-      $('input#new-zip').val("");
+    if (createNewUser(newUserName, newPassword, newFirstName, newLastName, newEmail, newStreet, newCity, newState, newZip, null)){
+      $('input.clearData').val("");
       $('#account-creator').hide();
       refreshUserList();
     }
+    });
 
-});
+  $('button#change-password-submit').click(function(event) {
+    event.preventDefault();
+    var pwCurrent = $('input#change-password-oldpw').val();
+    var pwNew1 = $('input#change-password-newpw1').val();
+    var pwNew2 = $('input#change-password-newpw2').val();
+    if (changePassword(pwCurrent, pwNew1, pwNew2)) {
+      $('input.clearData').val("");
+      $('#change-password').hide();
+    }
+  });
+
+  $('button#delete-user-submit').click(function(event) {
+    event.preventDefault();
+    var password = $('input#delete-user-password').val();
+    if (deleteCurrentUser(password)) {
+      refreshUserList();
+      $('input.clearData').val("");
+      $('#delete-user').hide();
+    }
+  });
+
 });

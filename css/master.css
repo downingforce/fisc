@@ -283,19 +283,18 @@ p.copyright {
     margin: 15px 0 0;
 }
 
-#account-login {
+#account-login, #change-password, #account-creator, #delete-user {
     display: none;
     position: relative;
     padding-top: 20%;
     padding-bottom: 20%;
 }
 
-#account-creator {
-    display: none;
-    position: relative;
-    padding-top: 20%;
-    padding-bottom: 20%;
+.user-details {
+  cursor: pointer;
+  color: #0088cc;
 }
+
 /**/
 #home {
   float:right;
@@ -358,4 +357,30 @@ table {
 
 .section-subheading {
     margin-bottom: 75px;
+
+/*#line-chart {
+  display: none;
+}*/
+
+#pie-chart {
+  display: none;
+  width: 100%;
+  height: auto;
+}
+
+#budget-chart {
+  text-align: center;
+  display:none;
+}
+#budget-total{
+  position: relative;
+  width: 100%;
+  height: 30px;
+  background-color: red;
+}
+#budget-left{
+  position: absolute;
+  width: 1%;
+  height: 100%;
+  background-color: green;
 }
