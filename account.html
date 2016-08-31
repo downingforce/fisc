@@ -35,6 +35,8 @@
     </div>
   </nav>
 
+  <div id="display-username"></div>
+  <div id="display-account-num"></div>
   <div class="container-fluid">
     <form id="transaction-input" class='form-inline'>
       <div class="transaction"><hr>
@@ -72,11 +74,9 @@
         </div>
         <div class="form-group">
         </div>
-
         <button id="add-trans" type="button" class="btn btn-success" name="button">Add A Transaction</button>
         <button id="update-trans" type="button" class="btn btn-success" name="button">Update your Transaction</button>
       </div>
-
       <hr>
       <div id="line-chart" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
       <div id="pie-chart" style="min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto"></div>
@@ -87,43 +87,44 @@
         </div>
         <div class="rows">
           <div class="col-xs-4">
-            <h4>Income</h4>
-            <span id="income-input"></span>
+            <h4>Savings</h4>
+            <span id="savings-input"></span>
           </div>
           <div class="col-xs-4">
             <h4>Expenses</h4>
             <span id="expense-input"></span>
           </div>
           <div class="col-xs-4">
-            <h4>Savings</h4>
-            <span id="savings-input"></span>
+            <h4>Income</h4>
+            <span id="income-input"></span>
           </div>
         </div>
       </div>
+    </div>
 
-      <hr>
-      <button id="toggle-line" type="button" name="button">Toggle Line Graph</button>
-      <button id="toggle-pie" type="button" name="button">Toggle Pie Chart</button>
-      <button id="toggle-budget" type="button" name="button">Toggle Personal Budget</button>
+    <hr>
+    <button id="toggle-line" type="button" name="button">Toggle Line Graph</button>
+    <button id="toggle-pie" type="button" name="button">Toggle Pie Chart</button>
+    <button id="toggle-budget" type="button" name="button">Toggle Personal Budget</button>
 
-    </form>
-  </div>
+  </form>
+</div>
 
-  <table id="transaction-list" class="transactions hover">
-    <caption>Transaction history</caption>
-    <thead>
-      <tr>
-        <th>ID</th>
-        <th>Date</th>
-        <th>Description</th>
-        <th>Amount</th>
-        <th>Tags</th>
-      </tr>
-    </thead>
-    <tbody class='transaction-row'>
+<table id="transaction-list" class="transactions hover">
+  <caption>Transaction history</caption>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Date</th>
+      <th>Description</th>
+      <th>Amount</th>
+      <th>Tags</th>
+    </tr>
+  </thead>
+  <tbody class='transaction-row'>
 
-    </tbody>
-  </table>
+  </tbody>
+</table>
 
 </body>
 </html>
