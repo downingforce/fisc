@@ -218,12 +218,25 @@ function revealLogin (evt, type) {
   document.getElementById(type).style.display = "block";
   evt.currentTarget.className += " active";
 }
+function padToEight(number) {
+  if (number<=99999999) { number = ("0000000"+number).slice(-8); }
+  return number;
+}
+
+function getAccountNum(){
+  var accNum = PROGSTATE.Users[PROGSTATE.CurrentUser].accountNumber;
+  return padToEight(accNum);
+}
 
 // Front end Logic
 $(document).ready(function(){
-
   loadState();
   refreshUserList();
+
+  var accNum = getAccountNum();
+  // alert(PROGSTATE.Users[PROGSTATE.CurrentUser].userProfile.firstName);
+  $('#display-account-num').append('<h5>Account Number: ' + accNum + '</h5>')
+  $('#display-username').append('<h5>' + PROGSTATE.Users[PROGSTATE.CurrentUser].userProfile.firstName + ' ' + PROGSTATE.Users[PROGSTATE.CurrentUser].userProfile.lastName + '</h5>')
 
   $("#saveDataBtn").click(function(event){
     saveState();
