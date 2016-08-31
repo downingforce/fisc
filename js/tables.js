@@ -8,6 +8,7 @@ function createData() {
 }
 
 function findTrans(id) {
+  debugger;
   var thisUser = PROGSTATE.Users[PROGSTATE.CurrentUser];
   for (var i = 0; i <= thisUser.transactions.length; i++) {
     if(thisUser.transactions[i].transactionID === parseInt(id)) {
@@ -38,7 +39,7 @@ createData();
 
 // Provides id of row selected and passes it's transaction data into input fields
   $('#transaction-list tbody').on('click', 'tr', function () {
-
+          console.log(transactionData)
           var data = transactions.row( this ).data();
           $('#add-trans').hide();
           $('#update-trans').show();
@@ -48,11 +49,12 @@ createData();
           document.getElementById("trans-desc").value = tempObject.desc
           document.getElementById("trans-amt").value = tempObject.amount
           document.getElementById("trans-tag").value = tempObject.tag
+
       });
 
 // Pushes new transactions into both object array of transactions and into datatable array
   $('#add-trans').on( 'click', function () {
-    var transID = document.getElementById("trans-id").value;
+    var transID = parseInt(document.getElementById("trans-id").value);
     var transDate = document.getElementById("trans-date").value;
     var transDesc = document.getElementById("trans-desc").value;
     var transAmt = document.getElementById("trans-amt").value;
@@ -60,7 +62,10 @@ createData();
     transactions.rows.add( [
       [transID,transDate,transDesc,transAmt,transTag]
     ] ).draw();
-    PROGSTATE.Users[PROGSTATE.CurrentUser].transactions.push(transID,transDate,transDesc,transAmt,transTag)
+    PROGSTATE.Users[PROGSTATE.CurrentUser].addTransaction(transID, transDate, transDesc, transAmt, transTag);
+    console.log(transactionData.length)
+    transactionData.push([parseInt(transID),transDate,transDesc,transAmt,transTag])
+    console.log(transactionData.length)
     document.getElementById("trans-id").value = transactionData.length + 1
   });
   // when user clicks, takes input and corrects specific transaction
