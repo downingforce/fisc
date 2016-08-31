@@ -33,45 +33,92 @@ function sortLineChart(){
   for (var i = 0; i < thisUser.transactions.length; i++) {
     var date = new Date(thisUser.transactions[i].date).getMonth();
     if (thisUser.transactions[i].tag === 'rent') {
-      series[0].data[date] += parseFloat(thisUser.transactions[i].amount);
+      series[0].data[date] += parseInt(thisUser.transactions[i].amount);
     }
     if (thisUser.transactions[i].tag === 'food') {
-      series[1].data[date] += parseFloat(thisUser.transactions[i].amount);
+      series[1].data[date] += parseInt(thisUser.transactions[i].amount);
     }
     if (thisUser.transactions[i].tag === 'utilities') {
-      series[2].data[date] += parseFloat(thisUser.transactions[i].amount);
+      series[2].data[date] += parseInt(thisUser.transactions[i].amount);
     }
     if (thisUser.transactions[i].tag === 'entertainment') {
-      series[3].data[date] += parseFloat(thisUser.transactions[i].amount);
+      series[3].data[date] += parseInt(thisUser.transactions[i].amount);
     }
     if (thisUser.transactions[i].tag === 'clothes') {
-      series[4].data[date] += parseFloat(thisUser.transactions[i].amount);
+      series[4].data[date] += parseInt(thisUser.transactions[i].amount);
     }
     if (thisUser.transactions[i].tag === 'automotive') {
-      series[5].data[date] += parseFloat(thisUser.transactions[i].amount);
+      series[5].data[date] += parseInt(thisUser.transactions[i].amount);
     }
     if (thisUser.transactions[i].tag === 'other') {
-      series[6].data[date] += parseFloat(thisUser.transactions[i].amount);
+      series[6].data[date] += parseInt(thisUser.transactions[i].amount);
     }
     if (thisUser.transactions[i].tag === 'medical') {
-      series[7].data[date] += parseFloat(thisUser.transactions[i].amount);
+      series[7].data[date] += parseInt(thisUser.transactions[i].amount);
     }
     if (thisUser.transactions[i].tag === 'home-improvement') {
-      series[8].data[date] += parseFloat(thisUser.transactions[i].amount);
+      series[8].data[date] += parseInt(thisUser.transactions[i].amount);
     }
   }
 }
+
+function findTotal() {
+  var totalsArray = [0,0];
+  for (var i = 0; i < transactionData.length; i++) {
+    if (transactionData[i][4] === 'income') {
+      totalsArray[0] += parseFloat(transactionData[i][3]);
+    } else {
+      totalsArray[1] += parseFloat(transactionData[i][3]);
+    }
+  }
+  return totalsArray;
+}
+
+function move(average) {
+    var elem = document.getElementById("budget-left");
+    elem.style.width = average + "%";
+
+}
+
+
 $(function () {
+
+  var totals = findTotal()
+  var incomeTotal = parseFloat(totals[0]);
+  var expenseTotal = parseFloat(totals[1]);
+  var savings = parseFloat(incomeTotal - expenseTotal);
+
+  function populateBudget() {
+    var income = '$' + incomeTotal.toFixed(2).replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,");
+    var expense = '$' + expenseTotal.toFixed(2).replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,");
+    var savingsString = '$' + savings.toFixed(2).replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,");
+    $('#income-input').text(income);
+    $('#expense-input').text(expense);
+    $('#savings-input').text(savingsString);
+    move(((savings/incomeTotal) * 100));
+  }
 
   $('#toggle-line').click(function() {
     $('#pie-chart').hide();
     $('#line-chart').show();
+    $('#budget-chart').hide();
     });
 
   $('#toggle-pie').click(function() {
     $('#pie-chart').show();
     $('#line-chart').hide();
+    $('#budget-chart').hide();
     });
+
+  $('#toggle-budget').click(function() {
+    $('#pie-chart').hide();
+    $('#line-chart').hide();
+    $('#budget-chart').show();
+    });
+  populateBudget();
+
+
+
 
 
 sortLineChart();
@@ -186,7 +233,7 @@ sortLineChart();
       }
     },
     series: [{
-      name: 'Brands',
+      name: 'Allocation',
       colorByPoint: true,
       data: [{
         name: 'Rent',

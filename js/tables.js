@@ -9,11 +9,7 @@ function findTrans(id) {
 }
 
 // Converts Transactions object into array for table
-var transactionData = [];
-for (var i = 0; i < PROGSTATE.Users[PROGSTATE.CurrentUser].transactions.length; i++) {
-  array = [PROGSTATE.Users[PROGSTATE.CurrentUser].transactions[i].transactionID, PROGSTATE.Users[PROGSTATE.CurrentUser].transactions[i].date, PROGSTATE.Users[PROGSTATE.CurrentUser].transactions[i].description,PROGSTATE.Users[PROGSTATE.CurrentUser].transactions[i].amount,PROGSTATE.Users[PROGSTATE.CurrentUser].transactions[i].tag]
-  transactionData.push(array);
-}
+
 $(document).ready(function() {
 
 

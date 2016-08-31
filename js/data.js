@@ -1,9 +1,15 @@
 // Home Depot, Trader Joes, New Seasons, Jiffy Lube, Lowes,  Walmart, Sassys, BW3s, Fred Meyer, Multnomah County, Target, Starbucks, Arco, Costco, Oregon Theater, Shell, Exxon Mobil, Autozone, Chipoltle, Tacobell, Coccoa, Netflix, Amazon, PGE, Northwest Natural
 // food, auto, home-improvement, work, rent, medical, bills, utilities
+
+
+
+
+
+
 var ricky = createNewUser("ricky", "abc", "Rick", "James", "rickjames@bitch.com","1010 Main St", "Portland", "OR", "97214");
 PROGSTATE.CurrentUser = 0;
-PROGSTATE.Users[PROGSTATE.CurrentUser].transactions = [{"transactionID":1,"date":"2016-02-29","description":"Trader Joes","amount":"45.23","tag":"other"},
-{"transactionID":2,"date":"2016-04-07","description":"Starbucks","amount":"56.35","tag":"food"},
+PROGSTATE.Users[PROGSTATE.CurrentUser].transactions = [{"transactionID":1,"date":"2015-08-29","description":"fisc","amount":"25786","tag":"income"},
+{"transactionID":2,"date":"2015-08-01","description":"Capital Properties","amount":"2500","tag":"rent"},
 {"transactionID":3,"date":"2016-06-15","description":"Coccoa","amount":"11.9","tag":"food"},
 {"transactionID":4,"date":"2015-12-25","description":"Home Depot","amount":"50.15","tag":"other"},
 {"transactionID":5,"date":"2016-02-16","description":"Lowes","amount":"189.54","tag":"home-improvement"},
@@ -101,9 +107,9 @@ PROGSTATE.Users[PROGSTATE.CurrentUser].transactions = [{"transactionID":1,"date"
 {"transactionID":97,"date":"2015-11-27","description":"Chipoltle","amount":"117.57","tag":"food"},
 {"transactionID":98,"date":"2015-11-26","description":"Exxon Mobil","amount":"27.13","tag":"automotive"},
 {"transactionID":99,"date":"2015-12-02","description":"Autozone","amount":"3.65","tag":"automotive"},
-{"transactionID":100,"date":"2016-05-21","description":"Trader Joes","amount":"189.86","tag":"food"},
+{"transactionID":100,"date":"2015-09-29","description":"fisc","amount":"25786","tag":"income"},
 {"transactionID":101,"date":"2016-02-20","description":"Netflix","amount":"128.72","tag":"entertainment"},
-{"transactionID":102,"date":"2015-09-17","description":"Costco","amount":"199.73","tag":"food"},
+{"transactionID":102,"date":"2015-09-01","description":"Capital Properties","amount":"2500","tag":"rent"},
 {"transactionID":103,"date":"2016-02-09","description":"Chipoltle","amount":"95.37","tag":"food"},
 {"transactionID":104,"date":"2016-04-17","description":"Tacobell","amount":"185.04","tag":"food"},
 {"transactionID":105,"date":"2016-07-04","description":"Autozone","amount":"29.48","tag":"automotive"},
@@ -200,10 +206,10 @@ PROGSTATE.Users[PROGSTATE.CurrentUser].transactions = [{"transactionID":1,"date"
 {"transactionID":196,"date":"2016-08-27","description":"Chipoltle","amount":"3.96","tag":"food"},
 {"transactionID":197,"date":"2016-04-23","description":"Shell","amount":"38.99","tag":"automotive"},
 {"transactionID":198,"date":"2016-07-25","description":"Tacobell","amount":"44.15","tag":"food"},
-{"transactionID":199,"date":"2016-03-25","description":"Home Depot","amount":"49.63","tag":"other"},
+{"transactionID":199,"date":"2015-10-29","description":"fisc","amount":"25786","tag":"income"},
 {"transactionID":200,"date":"2016-07-28","description":"Target","amount":"52.94","tag":"medical"},
 {"transactionID":201,"date":"2016-06-28","description":"Chipoltle","amount":"196.61","tag":"food"},
-{"transactionID":202,"date":"2016-07-20","description":"Coccoa","amount":"166.63","tag":"income"},
+{"transactionID":202,"date":"2015-10-02","description":"Capital Properties","amount":"2500","tag":"rent"},
 {"transactionID":203,"date":"2015-09-19","description":"New Seasons","amount":"36.71","tag":"other"},
 {"transactionID":204,"date":"2016-02-21","description":"Autozone","amount":"94.65","tag":"automotive"},
 {"transactionID":205,"date":"2016-06-23","description":"BW3s","amount":"81.07","tag":"food"},
@@ -251,8 +257,8 @@ PROGSTATE.Users[PROGSTATE.CurrentUser].transactions = [{"transactionID":1,"date"
 {"transactionID":247,"date":"2016-05-02","description":"Amazon","amount":"37.39","tag":"entertainment"},
 {"transactionID":248,"date":"2016-01-10","description":"Northwest Natural","amount":"171.2","tag":"utilities"},
 {"transactionID":249,"date":"2016-01-30","description":"Trader Joes","amount":"68.76","tag":"food"},
-{"transactionID":250,"date":"2015-10-22","description":"Northwest Natural","amount":"12.79","tag":"utilities"},
-{"transactionID":251,"date":"2015-11-10","description":"Coccoa","amount":"162.52","tag":"food"},
+{"transactionID":250,"date":"2015-11-29","description":"fisc","amount":"25786","tag":"income"},
+{"transactionID":251,"date":"2015-11-01","description":"Capital Properties","amount":"2500","tag":"rent"},
 {"transactionID":252,"date":"2016-04-30","description":"Amazon","amount":"24.27","tag":"food"},
 {"transactionID":253,"date":"2016-08-15","description":"BW3s","amount":"119.53","tag":"food"},
 {"transactionID":254,"date":"2015-12-02","description":"Arco","amount":"111.16","tag":"automotive"},
@@ -301,8 +307,8 @@ PROGSTATE.Users[PROGSTATE.CurrentUser].transactions = [{"transactionID":1,"date"
 {"transactionID":297,"date":"2016-07-27","description":"Oregon Theater","amount":"172.17","tag":"entertainment"},
 {"transactionID":298,"date":"2016-07-19","description":"Shell","amount":"18.64","tag":"automotive"},
 {"transactionID":299,"date":"2016-02-24","description":"Walmart","amount":"13.89","tag":"clothes"},
-{"transactionID":300,"date":"2016-06-28","description":"Tacobell","amount":"164.62","tag":"food"},
-{"transactionID":301,"date":"2016-05-27","description":"Exxon Mobil","amount":"168.73","tag":"automotive"},
+{"transactionID":300,"date":"2015-12-29","description":"fisc","amount":"25786","tag":"income"},
+{"transactionID":301,"date":"2015-12-01","description":"Capital Properties","amount":"2500","tag":"rent"},
 {"transactionID":302,"date":"2016-03-14","description":"Jiffy Lube","amount":"62.2","tag":"automotive"},
 {"transactionID":303,"date":"2016-03-11","description":"Multnomah County","amount":"111.08","tag":"utilities"},
 {"transactionID":304,"date":"2016-06-08","description":"PGE","amount":"166.05","tag":"utilities"},
@@ -351,8 +357,8 @@ PROGSTATE.Users[PROGSTATE.CurrentUser].transactions = [{"transactionID":1,"date"
 {"transactionID":347,"date":"2015-10-11","description":"Netflix","amount":"91.61","tag":"entertainment"},
 {"transactionID":348,"date":"2016-04-21","description":"Fred Meyer","amount":"197.34","tag":"clothes"},
 {"transactionID":349,"date":"2015-12-28","description":"Fred Meyer","amount":"116.67","tag":"home-improvement"},
-{"transactionID":350,"date":"2016-04-10","description":"Northwest Natural","amount":"157.63","tag":"utilities"},
-{"transactionID":351,"date":"2015-09-26","description":"Exxon Mobil","amount":"175.74","tag":"automotive"},
+{"transactionID":350,"date":"2016-01-29","description":"fisc","amount":"25786","tag":"income"},
+{"transactionID":351,"date":"2016-01-01","description":"Capital Properties","amount":"2500","tag":"rent"},
 {"transactionID":352,"date":"2016-08-19","description":"Northwest Natural","amount":"77.4","tag":"utilities"},
 {"transactionID":353,"date":"2016-07-28","description":"Costco","amount":"154.21","tag":"medical"},
 {"transactionID":354,"date":"2015-10-30","description":"Target","amount":"70.99","tag":"food"},
@@ -401,8 +407,8 @@ PROGSTATE.Users[PROGSTATE.CurrentUser].transactions = [{"transactionID":1,"date"
 {"transactionID":397,"date":"2016-03-30","description":"Multnomah County","amount":"91.58","tag":"other"},
 {"transactionID":398,"date":"2016-01-24","description":"Exxon Mobil","amount":"122.19","tag":"automotive"},
 {"transactionID":399,"date":"2016-08-07","description":"PGE","amount":"78.62","tag":"utilities"},
-{"transactionID":400,"date":"2016-05-09","description":"Oregon Theater","amount":"56.02","tag":"entertainment"},
-{"transactionID":401,"date":"2016-02-26","description":"Fred Meyer","amount":"185.24","tag":"home-improvement"},
+{"transactionID":400,"date":"2016-02-29","description":"fisc","amount":"25786","tag":"income"},
+{"transactionID":401,"date":"2016-02-01","description":"Capital Properties","amount":"2500","tag":"rent"},
 {"transactionID":402,"date":"2016-06-03","description":"Amazon","amount":"65.13","tag":"food"},
 {"transactionID":403,"date":"2016-03-06","description":"Exxon Mobil","amount":"188.29","tag":"automotive"},
 {"transactionID":404,"date":"2016-01-12","description":"Northwest Natural","amount":"105.4","tag":"utilities"},
@@ -501,8 +507,8 @@ PROGSTATE.Users[PROGSTATE.CurrentUser].transactions = [{"transactionID":1,"date"
 {"transactionID":497,"date":"2015-12-13","description":"PGE","amount":"153.55","tag":"utilities"},
 {"transactionID":498,"date":"2015-09-13","description":"Sassys","amount":"183.41","tag":"entertainment"},
 {"transactionID":499,"date":"2015-11-08","description":"Northwest Natural","amount":"102.27","tag":"utilities"},
-{"transactionID":500,"date":"2015-09-15","description":"Autozone","amount":"9.23","tag":"automotive"},
-{"transactionID":501,"date":"2016-08-06","description":"Sassys","amount":"159.28","tag":"entertainment"},
+{"transactionID":500,"date":"2016-03-29","description":"fisc","amount":"25786","tag":"income"},
+{"transactionID":501,"date":"2016-03-01","description":"Capital Properties","amount":"2500","tag":"rent"},
 {"transactionID":502,"date":"2015-10-18","description":"Sassys","amount":"123.33","tag":"food"},
 {"transactionID":503,"date":"2016-04-17","description":"Target","amount":"179.63","tag":"clothes"},
 {"transactionID":504,"date":"2016-01-16","description":"Costco","amount":"134.06","tag":"food"},
@@ -601,8 +607,8 @@ PROGSTATE.Users[PROGSTATE.CurrentUser].transactions = [{"transactionID":1,"date"
 {"transactionID":597,"date":"2015-09-18","description":"Northwest Natural","amount":"42.12","tag":"utilities"},
 {"transactionID":598,"date":"2016-04-13","description":"Tacobell","amount":"196.83","tag":"food"},
 {"transactionID":599,"date":"2015-11-18","description":"Walmart","amount":"22.38","tag":"food"},
-{"transactionID":600,"date":"2015-11-16","description":"Jiffy Lube","amount":"15.88","tag":"automotive"},
-{"transactionID":601,"date":"2016-01-28","description":"Lowes","amount":"40.44","tag":"home-improvement"},
+{"transactionID":600,"date":"2016-04-29","description":"fisc","amount":"25786","tag":"income"},
+{"transactionID":601,"date":"2016-04-01","description":"Capital Properties","amount":"2500","tag":"rent"},
 {"transactionID":602,"date":"2015-10-11","description":"Arco","amount":"56.15","tag":"automotive"},
 {"transactionID":603,"date":"2016-06-07","description":"PGE","amount":"53.25","tag":"utilities"},
 {"transactionID":604,"date":"2016-08-09","description":"Arco","amount":"27.91","tag":"automotive"},
@@ -701,8 +707,8 @@ PROGSTATE.Users[PROGSTATE.CurrentUser].transactions = [{"transactionID":1,"date"
 {"transactionID":697,"date":"2015-12-03","description":"New Seasons","amount":"145.56","tag":"food"},
 {"transactionID":698,"date":"2016-07-24","description":"Autozone","amount":"111.52","tag":"automotive"},
 {"transactionID":699,"date":"2016-02-03","description":"Arco","amount":"93.37","tag":"automotive"},
-{"transactionID":700,"date":"2016-08-10","description":"Netflix","amount":"90.79","tag":"entertainment"},
-{"transactionID":701,"date":"2016-06-25","description":"Arco","amount":"183.77","tag":"automotive"},
+{"transactionID":700,"date":"2016-05-29","description":"fisc","amount":"25786","tag":"income"},
+{"transactionID":701,"date":"2016-05-01","description":"Capital Properties","amount":"2500","tag":"rent"},
 {"transactionID":702,"date":"2016-01-09","description":"Jiffy Lube","amount":"117.73","tag":"automotive"},
 {"transactionID":703,"date":"2015-09-29","description":"Lowes","amount":"185.64","tag":"other"},
 {"transactionID":704,"date":"2015-11-23","description":"Oregon Theater","amount":"69.68","tag":"entertainment"},
@@ -801,8 +807,8 @@ PROGSTATE.Users[PROGSTATE.CurrentUser].transactions = [{"transactionID":1,"date"
 {"transactionID":797,"date":"2016-05-20","description":"Fred Meyer","amount":"104.31","tag":"food"},
 {"transactionID":798,"date":"2015-12-27","description":"BW3s","amount":"181.47","tag":"food"},
 {"transactionID":799,"date":"2016-05-22","description":"Shell","amount":"65.25","tag":"automotive"},
-{"transactionID":800,"date":"2016-02-13","description":"Tacobell","amount":"181.33","tag":"food"},
-{"transactionID":801,"date":"2015-12-08","description":"Fred Meyer","amount":"12.79","tag":"entertainment"},
+{"transactionID":800,"date":"2016-06-29","description":"fisc","amount":"25786","tag":"income"},
+{"transactionID":801,"date":"2016-06-01","description":"Capital Properties","amount":"2500","tag":"rent"},
 {"transactionID":802,"date":"2015-11-05","description":"Sassys","amount":"28.54","tag":"other"},
 {"transactionID":803,"date":"2015-10-14","description":"Starbucks","amount":"29.96","tag":"food"},
 {"transactionID":804,"date":"2016-07-29","description":"Fred Meyer","amount":"93.82","tag":"clothes"},
@@ -901,8 +907,8 @@ PROGSTATE.Users[PROGSTATE.CurrentUser].transactions = [{"transactionID":1,"date"
 {"transactionID":897,"date":"2016-08-06","description":"Sassys","amount":"94.5","tag":"entertainment"},
 {"transactionID":898,"date":"2016-07-24","description":"Costco","amount":"18.41","tag":"food"},
 {"transactionID":899,"date":"2016-02-16","description":"Lowes","amount":"158.18","tag":"home-improvement"},
-{"transactionID":900,"date":"2015-10-17","description":"Jiffy Lube","amount":"157.65","tag":"automotive"},
-{"transactionID":901,"date":"2016-07-14","description":"BW3s","amount":"169.15","tag":"food"},
+{"transactionID":900,"date":"2016-7-29","description":"fisc","amount":"25786","tag":"income"},
+{"transactionID":901,"date":"2016-07-01","description":"Capital Properties","amount":"2500","tag":"rent"},
 {"transactionID":902,"date":"2016-06-18","description":"Netflix","amount":"159.85","tag":"entertainment"},
 {"transactionID":903,"date":"2016-02-11","description":"Shell","amount":"102.66","tag":"automotive"},
 {"transactionID":904,"date":"2016-07-14","description":"Amazon","amount":"168.14","tag":"medical"},
@@ -1000,5 +1006,12 @@ PROGSTATE.Users[PROGSTATE.CurrentUser].transactions = [{"transactionID":1,"date"
 {"transactionID":996,"date":"2016-05-19","description":"Shell","amount":"51.59","tag":"automotive"},
 {"transactionID":997,"date":"2016-04-05","description":"Tacobell","amount":"187.82","tag":"food"},
 {"transactionID":998,"date":"2016-06-08","description":"Oregon Theater","amount":"77.08","tag":"entertainment"},
-{"transactionID":999,"date":"2016-03-17","description":"Coccoa","amount":"122.76","tag":"medical"},
-{"transactionID":1000,"date":"2016-07-08","description":"Starbucks","amount":"148.17","tag":"other"}]
+{"transactionID":999,"date":"2016-08-01","description":"Oregon Theater","amount":"130.54","tag":"entertainment"},
+{"transactionID":1000,"date":"2016-08-29","description":"Tacobell","amount":"25.98","tag":"food"}]
+
+
+var transactionData = [];
+for (var i = 0; i < PROGSTATE.Users[PROGSTATE.CurrentUser].transactions.length; i++) {
+  array = [PROGSTATE.Users[PROGSTATE.CurrentUser].transactions[i].transactionID, PROGSTATE.Users[PROGSTATE.CurrentUser].transactions[i].date, PROGSTATE.Users[PROGSTATE.CurrentUser].transactions[i].description,PROGSTATE.Users[PROGSTATE.CurrentUser].transactions[i].amount,PROGSTATE.Users[PROGSTATE.CurrentUser].transactions[i].tag]
+  transactionData.push(array);
+}

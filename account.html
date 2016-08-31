@@ -66,10 +66,31 @@
         <hr>
         <div id="line-chart" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
         <div id="pie-chart" style="min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto"></div>
+        <div id="budget-chart" class="budget-chart">
+          <div id="budget-total">
+            <div id="budget-left">
+            </div>
+          </div>
+          <div class="rows">
+            <div class="col-xs-4">
+              <h4>Income</h4>
+              <span id="income-input"></span>
+            </div>
+            <div class="col-xs-4">
+              <h4>Expenses</h4>
+              <span id="expense-input"></span>
+            </div>
+            <div class="col-xs-4">
+              <h4>Savings</h4>
+              <span id="savings-input"></span>
+            </div>
+          </div>
+        </div>
 
         <hr>
         <button id="toggle-line" type="button" name="button">Toggle Line Graph</button>
         <button id="toggle-pie" type="button" name="button">Toggle Pie Chart</button>
+        <button id="toggle-budget" type="button" name="button">Toggle Personal Budget</button>
 
       </form>
 
