@@ -337,3 +337,14 @@ h1 {
 	background-color: #E6FF99;
 }
 /*End of Data Table*/
+
+
+/*#line-chart {
+  display: none;
+}*/
+
+#pie-chart {
+  display: none;
+  width: 100%;
+  height: auto;
+}
