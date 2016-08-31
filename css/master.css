@@ -279,19 +279,18 @@ p.copyright {
     margin: 15px 0 0;
 }
 
-#account-login {
+#account-login, #change-password, #account-creator, #delete-user {
     display: none;
     position: relative;
     padding-top: 20%;
     padding-bottom: 20%;
 }
 
-#account-creator {
-    display: none;
-    position: relative;
-    padding-top: 20%;
-    padding-bottom: 20%;
+.user-details {
+  cursor: pointer;
+  color: #0088cc;
 }
+
 /**/
 #home {
   float:right;
