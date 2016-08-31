@@ -357,10 +357,7 @@ table {
 
 .section-subheading {
     margin-bottom: 75px;
-
-/*#line-chart {
-  display: none;
-}*/
+}
 
 #pie-chart {
   display: none;

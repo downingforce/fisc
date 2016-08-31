@@ -325,6 +325,7 @@ $(document).ready(function(){
       $('#account-creator').hide();
       refreshUserList();
     }
+    console.log(newUserName);
     });
 
   $('button#change-password-submit').click(function(event) {
