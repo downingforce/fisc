@@ -148,7 +148,7 @@ font-family: "Lato","Helvetica Neue",Helvetica,Arial,sans-serif;
   padding-top: 50px;
   padding-bottom: 50px;
   color: #f8f8f8;
-background: url(../img/ledger.png) no-repeat center center;
+  background: url(../img/ledger.png) no-repeat center center;
   background-size: cover;
 }
 
