@@ -1,12 +1,13 @@
 
 var transactionData = [];
-for (var i = 0; i < PROGSTATE.Users[PROGSTATE.CurrentUser].transactions.length; i++) {
-  array = [PROGSTATE.Users[PROGSTATE.CurrentUser].transactions[i].transactionID, PROGSTATE.Users[PROGSTATE.CurrentUser].transactions[i].date, PROGSTATE.Users[PROGSTATE.CurrentUser].transactions[i].description,PROGSTATE.Users[PROGSTATE.CurrentUser].transactions[i].amount,PROGSTATE.Users[PROGSTATE.CurrentUser].transactions[i].tag]
-  transactionData.push(array);
+function createData() {
+  for (var i = 0; i < PROGSTATE.Users[PROGSTATE.CurrentUser].transactions.length; i++) {
+    array = [PROGSTATE.Users[PROGSTATE.CurrentUser].transactions[i].transactionID, PROGSTATE.Users[PROGSTATE.CurrentUser].transactions[i].date, PROGSTATE.Users[PROGSTATE.CurrentUser].transactions[i].desc,PROGSTATE.Users[PROGSTATE.CurrentUser].transactions[i].amount,PROGSTATE.Users[PROGSTATE.CurrentUser].transactions[i].tag]
+    transactionData.push(array);
+  }
 }
 
 function findTrans(id) {
-    debugger;
   var thisUser = PROGSTATE.Users[PROGSTATE.CurrentUser];
   for (var i = 0; i <= thisUser.transactions.length; i++) {
     if(thisUser.transactions[i].transactionID === parseInt(id)) {
@@ -20,8 +21,7 @@ function findTrans(id) {
 
 $(document).ready(function() {
 
-
-
+createData();
   // sets iniital value for transactionID on page, starts with new unused transactionID
   document.getElementById("trans-id").value = transactionData.length + 1;
   // Creates DataTable
@@ -45,7 +45,7 @@ $(document).ready(function() {
           document.getElementById("trans-id").value = data[0];
           var tempObject = findTrans(data[0]);
           document.getElementById("trans-date").value = tempObject.date
-          document.getElementById("trans-desc").value = tempObject.description
+          document.getElementById("trans-desc").value = tempObject.desc
           document.getElementById("trans-amt").value = tempObject.amount
           document.getElementById("trans-tag").value = tempObject.tag
       });
