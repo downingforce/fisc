@@ -82,8 +82,8 @@ function move(average) {
 
 
 $(function () {
-
   var totals = findTotal()
+  console.log(totals)
   var incomeTotal = parseFloat(totals[0]);
   var expenseTotal = parseFloat(totals[1]);
   var savings = parseFloat(incomeTotal - expenseTotal);
