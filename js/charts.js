@@ -28,7 +28,7 @@ var series = [{
 }];
 
 function sortLineChart(){
-  var thisUser = PROGSTATE.Users[0];
+  var thisUser = PROGSTATE.Users[PROGSTATE.CurrentUser];
 
   for (var i = 0; i < thisUser.transactions.length; i++) {
     var date = new Date(thisUser.transactions[i].date).getMonth();
@@ -163,7 +163,7 @@ sortLineChart();
   //
   // Pie Chart
   //
-  var thisUser = PROGSTATE.Users[0];
+  var thisUser = PROGSTATE.Users[PROGSTATE.CurrentUser];
   var rent = 0.0;
   var food = 0.0;
   var utilities = 0.0;
