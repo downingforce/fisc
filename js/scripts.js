@@ -42,7 +42,7 @@ function createNewUser(userName, password, firstName, lastName, email, street, c
       return false;
     }
   }
-  var newUserProfile = new UserProfile(userName, password, firstName, lastName, email, new Address (street, city, state, zip));
+  var newUserProfile = new UserProfile(userName, md5(password), firstName, lastName, email, new Address (street, city, state, zip));
   var newUser = new USER(newUserProfile, PROGSTATE.accountNum++);
 
   if(jsonData != null){
@@ -72,6 +72,8 @@ function logoutUser(){
   PROGSTATE.CurrentUser = -1;
   saveState();
   refreshUserList();
+  var newUrl = 'index.html';
+  window.location.replace(newUrl);
 }
 
 function saveState(){
@@ -117,7 +119,7 @@ function retrieveUser(lsArray) {
 
 // Verify user and password
 function verifyUser(username, password) {
-debugger;
+
   var userIndex = null;
   for(var i=0; i<PROGSTATE.Users.length; ++i)
     if(PROGSTATE.Users[i].userProfile.userName === username)
@@ -255,9 +257,9 @@ $(document).ready(function(){
 
   $("#loadDummyBtn").click(function(event){
 
-    var ricky = createNewUser("ricky", "900150983cd24fb0d6963f7d28e17f72", "Rick", "James", "rickjames@bitch.com","1010 Main St", "Portland", "OR", "97214", randomData());
-    var bobby = createNewUser("bobby", "d16fb36f0911f878998c136191af705e", "Bobby", "Dean", "bobby@bitch.com","1010 Main St", "Portland", "OR", "97214", randomData());
-    //var bobby = createNewUser("johnny", "202cb962ac59075b964b07152d234b70", "Johnny", "Depp", "Johnny@bitch.com","1010 Main St", "Portland", "OR", "97214", null);
+    var ricky = createNewUser("ricky", "abc", "Rick", "James", "rickjames@bitch.com","1010 Main St", "Portland", "OR", "97214", randomData());
+    var bobby = createNewUser("bobby", "xyz", "Bobby", "Dean", "bobby@bitch.com","1010 Main St", "Portland", "OR", "97214", randomData());
+    var bobby = createNewUser("johnny", "123", "Johnny", "Depp", "Johnny@bitch.com","1010 Main St", "Portland", "OR", "97214", randomData());
 
     refreshUserList();
      $("#loadDummyBtn").prop('disabled', true);
