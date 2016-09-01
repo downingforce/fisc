@@ -223,6 +223,7 @@ function padToEight(number) {
   return number;
 }
 
+
 function getAccountNum(){
   var accNum = PROGSTATE.Users[PROGSTATE.CurrentUser].accountNumber;
   return padToEight(accNum);
@@ -233,10 +234,6 @@ $(document).ready(function(){
   loadState();
   refreshUserList();
 
-  var accNum = getAccountNum();
-  // alert(PROGSTATE.Users[PROGSTATE.CurrentUser].userProfile.firstName);
-  $('#display-account-num').append('<h5>Account Number: ' + accNum + '</h5>')
-  $('#display-username').append('<h5>' + PROGSTATE.Users[PROGSTATE.CurrentUser].userProfile.firstName + ' ' + PROGSTATE.Users[PROGSTATE.CurrentUser].userProfile.lastName + '</h5>')
 
   $("#saveDataBtn").click(function(event){
     saveState();

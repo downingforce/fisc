@@ -22,6 +22,12 @@ function findTrans(id) {
 
 $(document).ready(function() {
 
+    var accNum = getAccountNum();
+    // alert(PROGSTATE.Users[PROGSTATE.CurrentUser].userProfile.firstName);
+    $('#display-account-num').append('<h5>Account Number: ' + accNum + '</h5>')
+    $('#display-username').append('<h5>' + PROGSTATE.Users[PROGSTATE.CurrentUser].userProfile.firstName + ' ' + PROGSTATE.Users[PROGSTATE.CurrentUser].userProfile.lastName + '</h5>')
+
+
 createData();
   // sets iniital value for transactionID on page, starts with new unused transactionID
   document.getElementById("trans-id").value = transactionData.length + 1;
