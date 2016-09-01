@@ -99,6 +99,7 @@ printCharts();
     transactions.clear().draw();
     transactions.rows.add(transactionData); // Add new data
     transactions.columns.adjust().draw(); // Redraw the DataTable
+    document.getElementById("trans-id").value = transactionData.length + 1;
     printCharts();
     saveState();
     event.preventDefault();
