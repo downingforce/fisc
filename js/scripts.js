@@ -338,10 +338,10 @@ $(document).ready(function(){
       $('input.clearData').val("");
       $('#account-creator').hide();
       refreshUserList();
+      console.log(newUserName);
+      var newUrl = 'account.html';
+      window.location.replace(newUrl);
     }
-    console.log(newUserName);
-    var newUrl = 'account.html';
-    window.location.replace(newUrl);
     });
 
   $('button#change-password-submit').click(function(event) {
