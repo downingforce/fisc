@@ -1,6 +1,4 @@
-
 var STATENAME="FISCDATA";
-
 var PROGSTATE = {
   accountNum: 1000,
   Users: [],
@@ -8,31 +6,31 @@ var PROGSTATE = {
 };
 
 function USER(userProf, accNum){
-    this.userProfile = userProf;
-    this.accountNumber = accNum;
-    this.transactions = [];
+  this.userProfile = userProf;
+  this.accountNumber = accNum;
+  this.transactions = [];
 }
 
 function UserProfile (userName, password, firstName, lastName, email, address) {
-    this.userName = userName;
-    this.password = password;
-    this.firstName = firstName;
-    this.lastName = lastName;
-    this.email = email;
-    this.address = address;
+  this.userName = userName;
+  this.password = password;
+  this.firstName = firstName;
+  this.lastName = lastName;
+  this.email = email;
+  this.address = address;
 }
 function Address (street, city, state, zip) {
-    this.street = street;
-    this.city = city;
-    this.state = state;
-    this.zip = zip;
+  this.street = street;
+  this.city = city;
+  this.state = state;
+  this.zip = zip;
 }
 function Transaction (id, date, description, amount, tag) {
-    this.transactionID = id;
-    this.date = date;
-    this.desc = description;
-    this.amount = amount;
-    this.tag = tag;
+  this.transactionID = id;
+  this.date = date;
+  this.desc = description;
+  this.amount = amount;
+  this.tag = tag;
 }
 
 function createNewUser(userName, password, firstName, lastName, email, street, city, state, zip, jsonData) {
@@ -63,8 +61,8 @@ function populateTransactions(jsonArray, user) {
 }
 
 USER.prototype.addTransaction = function(id, date, description, amount, tag) {
-    var newTransaction = new Transaction(id, date, description, amount, tag);
-    this.transactions.push(newTransaction);
+  var newTransaction = new Transaction(id, date, description, amount, tag);
+  this.transactions.push(newTransaction);
 }
 
 function logoutUser(){
@@ -117,15 +115,15 @@ function retrieveUser(lsArray) {
 
 // Verify user and password
 function verifyUser(username, password) {
-debugger;
+  debugger;
   var userIndex = null;
   for(var i=0; i<PROGSTATE.Users.length; ++i)
-    if(PROGSTATE.Users[i].userProfile.userName === username)
-      userIndex = i;
+  if(PROGSTATE.Users[i].userProfile.userName === username)
+  userIndex = i;
 
   if (userIndex === null) {
-      alert('Username not found');
-      return false;
+    alert('Username not found');
+    return false;
   } else {
     if (PROGSTATE.Users[userIndex].userProfile.password === md5(password)) {
       alert("Welcome " + PROGSTATE.Users[userIndex].userProfile.userName);
@@ -146,19 +144,19 @@ function changePassword(pwCurrent, pwNew1, pwNew2) {
   }
 
   if (PROGSTATE.Users[PROGSTATE.CurrentUser].userProfile.password === md5(pwCurrent)) {
-      if(pwNew1 != pwNew2){
-        alert("Try Again, Passwords do not match");
-        return false;
-      }
-      else{
-        PROGSTATE.Users[PROGSTATE.CurrentUser].userProfile.password = md5(pwNew1);
-        alert("Password has been changed");
-        saveState();
-        return true;
-      }
-  } else {
-      alert("Current Password is Incorrect");
+    if(pwNew1 != pwNew2){
+      alert("Try Again, Passwords do not match");
       return false;
+    }
+    else{
+      PROGSTATE.Users[PROGSTATE.CurrentUser].userProfile.password = md5(pwNew1);
+      alert("Password has been changed");
+      saveState();
+      return true;
+    }
+  } else {
+    alert("Current Password is Incorrect");
+    return false;
   }
 }
 
@@ -174,8 +172,8 @@ function deleteCurrentUser(password){
     saveState();
     return true;
   } else {
-      alert("Password is Incorrect");
-      return false;
+    alert("Password is Incorrect");
+    return false;
   }
 }
 
@@ -184,22 +182,22 @@ function refreshUserList () {
   $(".user-details").remove();
   if(PROGSTATE.CurrentUser >=0) {
     $("#current-user").append('<span class="user-display">'
-                            + PROGSTATE.Users[PROGSTATE.CurrentUser].userProfile.userName
-                            + '</span>');
+    + PROGSTATE.Users[PROGSTATE.CurrentUser].userProfile.userName
+    + '</span>');
   } else {
     $("#current-user").append('<span class="user-display">None</span>');
   }
   for(var i=0; i<PROGSTATE.Users.length; ++i){
     $("#user-list").append('<li class="user-display"><span class="user-details">'
-                            + PROGSTATE.Users[i].userProfile.userName
-                            + '</span></li>');
+    + PROGSTATE.Users[i].userProfile.userName
+    + '</span></li>');
     addListInfo(PROGSTATE.Users[i].accountNumber, PROGSTATE.Users[i].transactions.length)
   }
 }
 
 function addListInfo(accNum, numTrans) {
   $(".user-details").last().click(function(){
-   alert("Acc Num: " + accNum + " Num Trans: " + numTrans);
+    alert("Acc Num: " + accNum + " Num Trans: " + numTrans);
   });
 }
 
@@ -208,12 +206,12 @@ function revealLogin (evt, type) {
 
   var tabcontent = document.getElementsByClassName("tabcontent");
   for (i = 0; i < tabcontent.length; i++) {
-      tabcontent[i].style.display = "none";
+    tabcontent[i].style.display = "none";
   }
   // Get all elements with class="tablinks" and remove the class "active"
   var tablinks = document.getElementsByClassName("tablinks");
   for (i = 0; i < tablinks.length; i++) {
-      tablinks[i].className = tablinks[i].className.replace(" active", "");
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
   }
   // Show the current tab, and add an "active" class to the link that opened the tab
   document.getElementById(type).style.display = "block";
@@ -243,7 +241,7 @@ $(document).ready(function(){
 
   $("#loadDataBtn").click(function(event){
     if(!loadState())
-      alert("No Saved Data Exists");
+    alert("No Saved Data Exists");
     refreshUserList();
     event.preventDefault();
   });
@@ -260,7 +258,7 @@ $(document).ready(function(){
     //var bobby = createNewUser("johnny", "202cb962ac59075b964b07152d234b70", "Johnny", "Depp", "Johnny@bitch.com","1010 Main St", "Portland", "OR", "97214", null);
 
     refreshUserList();
-     $("#loadDummyBtn").prop('disabled', true);
+    $("#loadDummyBtn").prop('disabled', true);
     event.preventDefault();
   });
 
@@ -276,8 +274,6 @@ $(document).ready(function(){
     $('#account-login').show();
   });
 
-
-
   $("#logoutUserBtn").click(function(event){
     if(PROGSTATE.CurrentUser === -1) {
       alert("Please login first");
@@ -288,7 +284,7 @@ $(document).ready(function(){
   });
 
   $('#goToCreate').click(function() {
-      $('#account-creator').show();
+    $('#account-creator').show();
   });
 
   $('#goToChangePassword').click(function() {
@@ -340,7 +336,7 @@ $(document).ready(function(){
     console.log(newUserName);
     var newUrl = 'account.html';
     window.location.replace(newUrl);
-    });
+  });
 
   $('button#change-password-submit').click(function(event) {
     event.preventDefault();
@@ -362,5 +358,4 @@ $(document).ready(function(){
       $('#delete-user').hide();
     }
   });
-
 });

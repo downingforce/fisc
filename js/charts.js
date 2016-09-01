@@ -1,35 +1,34 @@
 var series = [{
- name: 'Rent',
- data: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+  name: 'Rent',
+  data: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
 }, {
- name: 'Food',
- data: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+  name: 'Food',
+  data: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
 }, {
- name: 'Utilities',
- data: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+  name: 'Utilities',
+  data: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
 }, {
- name: 'Entertainment',
- data: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+  name: 'Entertainment',
+  data: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
 }, {
- name: 'Clothes',
- data: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+  name: 'Clothes',
+  data: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
 }, {
- name: 'Automotive',
- data: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+  name: 'Automotive',
+  data: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
 }, {
- name: 'Other',
- data: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+  name: 'Other',
+  data: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
 }, {
- name: 'Medical',
- data: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+  name: 'Medical',
+  data: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
 }, {
- name: 'Home-Improvement',
- data: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+  name: 'Home-Improvement',
+  data: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
 }];
 
 function sortLineChart(){
   var thisUser = PROGSTATE.Users[PROGSTATE.CurrentUser];
-
   for (var i = 0; i < thisUser.transactions.length; i++) {
     var date = new Date(thisUser.transactions[i].date).getMonth();
     if (thisUser.transactions[i].tag === 'rent') {
@@ -75,11 +74,9 @@ function findTotal() {
 }
 
 function move(average) {
-    var elem = document.getElementById("budget-left");
-    elem.style.width = average + "%";
-
+  var elem = document.getElementById("budget-left");
+  elem.style.width = average + "%";
 }
-
 
 $(function () {
   var totals = findTotal()
@@ -97,31 +94,23 @@ $(function () {
     $('#savings-input').text(savingsString);
     move(((savings/incomeTotal) * 100));
   }
-
   $('#toggle-line').click(function() {
     $('#pie-chart').hide();
     $('#line-chart').show();
     $('#budget-chart').hide();
-    });
-
+  });
   $('#toggle-pie').click(function() {
     $('#pie-chart').show();
     $('#line-chart').hide();
     $('#budget-chart').hide();
-    });
-
+  });
   $('#toggle-budget').click(function() {
     $('#pie-chart').hide();
     $('#line-chart').hide();
     $('#budget-chart').show();
-    });
+  });
   populateBudget();
-
-
-
-
-
-sortLineChart();
+  sortLineChart();
   // Line Chart
   $('#line-chart').highcharts({
     title: {
@@ -155,9 +144,7 @@ sortLineChart();
       verticalAlign: 'middle',
       borderWidth: 0
     },
-
-     series: series
-
+    series: series
   });
   // End Line Chart
   //
@@ -173,38 +160,35 @@ sortLineChart();
   var medical = 0.0;
   var other = 0.0;
   var homeImprovement = 0.0;
-
   for (var i = 0; i < thisUser.transactions.length; i++) {
-
-      if(thisUser.transactions[i].tag === 'rent'){
-          rent += parseFloat(thisUser.transactions[i].amount);
-      }
-      if(thisUser.transactions[i].tag === 'food'){
-          food += parseFloat(thisUser.transactions[i].amount);
-      }
-      if(thisUser.transactions[i].tag === 'utilities'){
-          utilities += parseFloat(thisUser.transactions[i].amount);
-      }
-      if(thisUser.transactions[i].tag === 'entertainment'){
-          entertainment += parseFloat(thisUser.transactions[i].amount);
-      }
-      if(thisUser.transactions[i].tag === 'clothes'){
-          clothes += parseFloat(thisUser.transactions[i].amount);
-      }
-      if(thisUser.transactions[i].tag === 'automotive'){
-          automotive += parseFloat(thisUser.transactions[i].amount);
-      }
-      if(thisUser.transactions[i].tag === 'medical'){
-          medical += parseFloat(thisUser.transactions[i].amount);
-      }
-      if(thisUser.transactions[i].tag === 'home-improvement'){
-          homeImprovement += parseFloat(thisUser.transactions[i].amount);
-      }
-      if(thisUser.transactions[i].tag === 'other'){
-          other += parseFloat(thisUser.transactions[i].amount);
-      }
+    if(thisUser.transactions[i].tag === 'rent'){
+      rent += parseFloat(thisUser.transactions[i].amount);
+    }
+    if(thisUser.transactions[i].tag === 'food'){
+      food += parseFloat(thisUser.transactions[i].amount);
+    }
+    if(thisUser.transactions[i].tag === 'utilities'){
+      utilities += parseFloat(thisUser.transactions[i].amount);
+    }
+    if(thisUser.transactions[i].tag === 'entertainment'){
+      entertainment += parseFloat(thisUser.transactions[i].amount);
+    }
+    if(thisUser.transactions[i].tag === 'clothes'){
+      clothes += parseFloat(thisUser.transactions[i].amount);
+    }
+    if(thisUser.transactions[i].tag === 'automotive'){
+      automotive += parseFloat(thisUser.transactions[i].amount);
+    }
+    if(thisUser.transactions[i].tag === 'medical'){
+      medical += parseFloat(thisUser.transactions[i].amount);
+    }
+    if(thisUser.transactions[i].tag === 'home-improvement'){
+      homeImprovement += parseFloat(thisUser.transactions[i].amount);
+    }
+    if(thisUser.transactions[i].tag === 'other'){
+      other += parseFloat(thisUser.transactions[i].amount);
+    }
   }
-
 
   $('#pie-chart').highcharts({
     chart: {
@@ -265,6 +249,4 @@ sortLineChart();
       }]
     }]
   });
-  // End Pie Chart
-
 });

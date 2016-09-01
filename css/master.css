@@ -1,10 +1,10 @@
 /* ****** LOGIN ****** */
 
 ul.tab {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
 }
 
 /* Float the list items side by side */
@@ -12,13 +12,13 @@ ul.tab li {float: left;}
 
 /* Style the links inside the list items */
 ul.tab li a {
-    display: inline-block;
-    color: black;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-    transition: 0.3s;
-    font-size: 17px;
+  display: inline-block;
+  color: black;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  transition: 0.3s;
+  font-size: 17px;
 }
 
 /* Change background color of links on hover */
@@ -32,28 +32,28 @@ ul.tab li a:focus, .active {background-color: #ccc;}
 }
 
 .form-signin {
-    max-width: 330px;
-    padding: 15px;
-    margin: 0 auto;
+  max-width: 330px;
+  padding: 15px;
+  margin: 0 auto;
 }
 
 .form-signin .form-signin-heading, .form-signin .checkbox {
-    margin-bottom: 10px;
+  margin-bottom: 10px;
 }
 
 .form-signin .checkbox {
-    font-weight: normal;
+  font-weight: normal;
 }
 
 .form-signin .form-control {
-    position: relative;
-    font-size: 16px;
-    text-align: left;
-    height: auto;
-    padding: 10px;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
+  position: relative;
+  font-size: 16px;
+  text-align: left;
+  height: auto;
+  padding: 10px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 .form-signin .form-control:focus {
@@ -118,7 +118,7 @@ h3,
 h4,
 h5,
 h6 {
-font-family: "Lato","Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-family: "Lato","Helvetica Neue",Helvetica,Arial,sans-serif;
   font-weight: 700;
 }
 
@@ -127,7 +127,7 @@ font-family: "Lato","Helvetica Neue",Helvetica,Arial,sans-serif;
 }
 
 #register label {
-font-family: "Lato","Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-family: "Lato","Helvetica Neue",Helvetica,Arial,sans-serif;
   font-size: 17px;
   color: black;
   text-align: left;
@@ -176,118 +176,118 @@ font-family: "Lato","Helvetica Neue",Helvetica,Arial,sans-serif;
 }
 
 @media(max-width:767px) {
-    .intro-message {
-        padding-bottom: 15%;
-    }
+  .intro-message {
+    padding-bottom: 15%;
+  }
 
-    .intro-message > h1 {
-        font-size: 3em;
-    }
+  .intro-message > h1 {
+    font-size: 3em;
+  }
 
-    ul.intro-social-buttons > li {
-        display: block;
-        margin-bottom: 20px;
-        padding: 0;
-    }
+  ul.intro-social-buttons > li {
+    display: block;
+    margin-bottom: 20px;
+    padding: 0;
+  }
 
-    ul.intro-social-buttons > li:last-child {
-        margin-bottom: 0;
-    }
+  ul.intro-social-buttons > li:last-child {
+    margin-bottom: 0;
+  }
 
-    .intro-divider {
-        width: 100%;
-    }
+  .intro-divider {
+    width: 100%;
+  }
 }
 
 .network-name {
-    text-transform: uppercase;
-    font-size: 14px;
-    font-weight: 400;
-    letter-spacing: 2px;
+  text-transform: uppercase;
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 2px;
 }
 
 .content-section-a {
-    padding: 50px 0;
-    background-color: #f8f8f8;
+  padding: 50px 0;
+  background-color: #f8f8f8;
 }
 
 .content-section-b {
-    padding: 50px 0;
-    border-top: 1px solid #e7e7e7;
-    border-bottom: 1px solid #e7e7e7;
+  padding: 50px 0;
+  border-top: 1px solid #e7e7e7;
+  border-bottom: 1px solid #e7e7e7;
 }
 
 .section-heading {
-    margin-bottom: 30px;
+  margin-bottom: 30px;
 }
 
 .section-heading-spacer {
-    float: left;
-    width: 200px;
-    border-top: 3px solid #e7e7e7;
+  float: left;
+  width: 200px;
+  border-top: 3px solid #e7e7e7;
 }
 
 .banner {
-    padding: 100px 0;
-    color: #f8f8f8;
-    background: url(../img/matrix.jpg) no-repeat center center;
-    background-size: cover;
+  padding: 100px 0;
+  color: #f8f8f8;
+  background: url(../img/matrix.jpg) no-repeat center center;
+  background-size: cover;
 }
 
 .banner h2 {
-    margin: 0;
-    text-shadow: 2px 2px 3px rgba(0,0,0,0.6);
-    font-size: 3em;
+  margin: 0;
+  text-shadow: 2px 2px 3px rgba(0,0,0,0.6);
+  font-size: 3em;
 }
 
 .banner ul {
-    margin-bottom: 0;
+  margin-bottom: 0;
 }
 
 .banner-social-buttons {
-    float: right;
-    margin-top: 0;
+  float: right;
+  margin-top: 0;
 }
 
 @media(max-width:1199px) {
-    ul.banner-social-buttons {
-        float: left;
-        margin-top: 15px;
-    }
+  ul.banner-social-buttons {
+    float: left;
+    margin-top: 15px;
+  }
 }
 
 @media(max-width:767px) {
-    .banner h2 {
-        margin: 0;
-        text-shadow: 2px 2px 3px rgba(0,0,0,0.6);
-        font-size: 3em;
-    }
+  .banner h2 {
+    margin: 0;
+    text-shadow: 2px 2px 3px rgba(0,0,0,0.6);
+    font-size: 3em;
+  }
 
-    ul.banner-social-buttons > li {
-        display: block;
-        margin-bottom: 20px;
-        padding: 0;
-    }
+  ul.banner-social-buttons > li {
+    display: block;
+    margin-bottom: 20px;
+    padding: 0;
+  }
 
-    ul.banner-social-buttons > li:last-child {
-        margin-bottom: 0;
-    }
+  ul.banner-social-buttons > li:last-child {
+    margin-bottom: 0;
+  }
 }
 
 footer {
-    padding: 50px 0;
-    background-color: #f8f8f8;
+  padding: 50px 0;
+  background-color: #f8f8f8;
 }
 
 p.copyright {
-    margin: 15px 0 0;
+  margin: 15px 0 0;
 }
 
 #account-login, #change-password, #account-creator, #delete-user {
-    display: none;
-    position: relative;
-    padding-top: 20%;
-    padding-bottom: 20%;
+  display: none;
+  position: relative;
+  padding-top: 20%;
+  padding-bottom: 20%;
 }
 
 .user-details {
@@ -301,17 +301,17 @@ p.copyright {
 }
 /*Data Table style*/
 table, th, td{
-border: 1px solid black;
+  border: 1px solid black;
 }
 th, td{
-    padding: 15px;
+  padding: 15px;
 }
 th{
-    text-align: left;
-    background-color: lightgreen;
+  text-align: left;
+  background-color: lightgreen;
 }
 table {
-    border-spacing: 5px;
+  border-spacing: 5px;
 }
 
 #update-trans {
@@ -323,7 +323,7 @@ table {
 }
 
 #fisc {
-    color: red;
+  color: red;
 }
 
 #update-trans {
@@ -335,28 +335,28 @@ table {
 /*For Data Table*/
 
 #transaction-list tr.even:hover {
-	background-color: #ECFFB3;
+  background-color: #ECFFB3;
 }
 
 #transaction-list tr.odd:hover {
-	background-color: #E6FF99;
+  background-color: #E6FF99;
 }
 /*End of Data Table*/
 
 /* ****** Meet Team ****** */
 
 .team-member {
-    text-align: center;
-    margin-bottom: 50px;
+  text-align: center;
+  margin-bottom: 50px;
 }
 
 .team-member img {
-    margin: 0 auto;
-    border: 7px solid white;
+  margin: 0 auto;
+  border: 7px solid white;
 }
 
 .section-subheading {
-    margin-bottom: 75px;
+  margin-bottom: 75px;
 }
 
 #pie-chart {
