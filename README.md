@@ -15,10 +15,26 @@
 
 ## Specifications
 
-* User can create new accounts, login using credentials, update password and delete accounts
-* Passwords are secured  as hashed MD5 strings
+* Application can create new accounts
+* login using credentials
+* Passwords are secured
+* Application displays overview of Account info(income - expenses = saving)
+* Descriptive charts analyze spending
+* Application can record transactions
+  * Transaction data includes: Transaction ID, Data, Description, Amount, and Tag
+  * Transactions are separated into expense categories
+* Application can update or correct transactions
+* Application can search and sort transactional history
 * Program will save its state and data across browser restarts and refreshes
+* Application can track multiple accounts
 
+** Demo Properties
+* Three demo accounts
+  * Demo Accounts have data pre stored
+  * New accounts come with randomized data
+
+** Back-end
+* App includes backend page to administer accounts and data functions
 
 ## Known Bugs
 
@@ -40,4 +56,3 @@ No known bugs
 
 ### License
 * Free for all and any use
-
