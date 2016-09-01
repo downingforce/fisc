@@ -117,6 +117,7 @@ function retrieveUser(lsArray) {
 
 // Verify user and password
 function verifyUser(username, password) {
+debugger;
   var userIndex = null;
   for(var i=0; i<PROGSTATE.Users.length; ++i)
     if(PROGSTATE.Users[i].userProfile.userName === username)
@@ -254,8 +255,8 @@ $(document).ready(function(){
 
   $("#loadDummyBtn").click(function(event){
 
-    var ricky = createNewUser("ricky", "900150983cd24fb0d6963f7d28e17f72", "Rick", "James", "rickjames@bitch.com","1010 Main St", "Portland", "OR", "97214", rickyJsonData);
-    var bobby = createNewUser("bobby", "d16fb36f0911f878998c136191af705e", "Bobby", "Dean", "bobby@bitch.com","1010 Main St", "Portland", "OR", "97214", rickyJsonData);
+    var ricky = createNewUser("ricky", "900150983cd24fb0d6963f7d28e17f72", "Rick", "James", "rickjames@bitch.com","1010 Main St", "Portland", "OR", "97214", randomData());
+    var bobby = createNewUser("bobby", "d16fb36f0911f878998c136191af705e", "Bobby", "Dean", "bobby@bitch.com","1010 Main St", "Portland", "OR", "97214", randomData());
     //var bobby = createNewUser("johnny", "202cb962ac59075b964b07152d234b70", "Johnny", "Depp", "Johnny@bitch.com","1010 Main St", "Portland", "OR", "97214", null);
 
     refreshUserList();
@@ -275,9 +276,7 @@ $(document).ready(function(){
     $('#account-login').show();
   });
 
-  $('#loginSubmit').click(function(event) {
-      $('#account-login').show();
-  });
+
 
   $("#logoutUserBtn").click(function(event){
     if(PROGSTATE.CurrentUser === -1) {
@@ -308,7 +307,7 @@ $(document).ready(function(){
     }
   });
 
-  $('button#account-login-submit').click(function(event) {
+  $('#loginSubmit').click(function(event) {
 
     event.preventDefault();
     var username = $('input#account-login-username').val();
@@ -317,10 +316,12 @@ $(document).ready(function(){
       $('input.clearData').val("");
       $('#account-login').hide();
       refreshUserList();
+      var newUrl = 'account.html';
+      window.location.replace(newUrl);
     }
   });
 
-  $('#account-creator').submit(function(event){
+  $('#registerSubmit').click(function(event){
     event.preventDefault();
     var newUserName = $('input#new-username').val();
     var newPassword = $('input#new-password').val();
@@ -331,12 +332,14 @@ $(document).ready(function(){
     var newCity = $('input#new-city').val();
     var newState = $('input#new-state').val();
     var newZip = $('input#new-zip').val();
-    if (createNewUser(newUserName, newPassword, newFirstName, newLastName, newEmail, newStreet, newCity, newState, newZip, null)){
+    if (createNewUser(newUserName, newPassword, newFirstName, newLastName, newEmail, newStreet, newCity, newState, newZip, randomData())){
       $('input.clearData').val("");
       $('#account-creator').hide();
       refreshUserList();
     }
     console.log(newUserName);
+    var newUrl = 'account.html';
+    window.location.replace(newUrl);
     });
 
   $('button#change-password-submit').click(function(event) {
